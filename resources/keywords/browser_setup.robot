@@ -22,6 +22,7 @@ Get Chrome Options
     Evaluate       $options.add_argument('--no-sandbox')
     Evaluate       $options.add_argument('--disable-dev-shm-usage')
     Evaluate       $options.add_argument('--window-size=1920,1080')
+    ${headless}=    Convert To Boolean    ${headless}
     IF    ${headless}
         Evaluate   $options.add_argument('--headless=new')
     END
