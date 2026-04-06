@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.3 on win32)" generated="2026-04-06T02:33:19.202818" rpa="false" schemaversion="5">
+<suite id="s1" name="First Test" source="C:\Development\OrangeHRMRobotFramework\tests\smoke\first_test.robot">
+<test id="s1-t1" name="TC-002 Login Page Should Have Username Field" line="18">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-04-06T02:33:19.584745" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-04-06T02:33:19.584238" elapsed="3.124810"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-04-06T02:33:22.709576" elapsed="0.032417"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-04-06T02:33:22.850679" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-04-06T02:33:22.851101" level="FAIL">Page should have contained element 'xpath=//label[contains(text(),'Username')]' but did not.</msg>
+<arg>xpath=//label[contains(text(),'Username')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="FAIL" start="2026-04-06T02:33:22.742388" elapsed="0.116496">Page should have contained element 'xpath=//label[contains(text(),'Username')]' but did not.</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2026-04-06T02:33:22.859173" elapsed="0.000114"/>
+</kw>
+<doc>Verifies the username input field is present on the login page.</doc>
+<status status="FAIL" start="2026-04-06T02:33:19.582652" elapsed="3.276866">Page should have contained element 'xpath=//label[contains(text(),'Username')]' but did not.</status>
+</test>
+<doc>My first Robot Framework test.</doc>
+<status status="FAIL" start="2026-04-06T02:33:19.223935" elapsed="3.636630"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="First Test" id="s1" pass="0" fail="1" skip="0">First Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

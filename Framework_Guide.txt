@@ -1,0 +1,15 @@
+Step 1 : install python , pycharm
+
+Step 2 : Create project in pycharm and in terminal run/ install : 
+
+	pip install robotframework
+	pip install robotframework-seleniumlibrary
+	pip install webdriver-manager
+	pip install pyyaml
+	
+Step 3 : Install Robot Framework Language Server (by Robocorp) --> File > Settings > Plugins
+
+
+Step 4  : Create Project folder stucture 
+
+
