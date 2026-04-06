@@ -1,0 +1,23 @@
+# ================================================
+# Staging Environment Configuration
+# ================================================
+
+environment: staging
+
+application:
+  base_url: "https://staging.orangehrm.example.com/web/index.php/auth/login"
+  app_name: "OrangeHRM"
+
+credentials:
+  username: "staging_admin"
+  password: "${STAGING_PASSWORD}"    # injected from CI environment variable
+
+browser:
+  name: "chrome"
+  headless: true          # headless on CI — no monitor available
+  implicit_wait: 15
+  explicit_wait: 45
+
+reporting:
+  screenshots_on_failure: true
+  screenshots_dir: "results/screenshots"

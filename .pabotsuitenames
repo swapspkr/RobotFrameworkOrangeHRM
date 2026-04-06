@@ -1,0 +1,6 @@
+datasources:c41d68630c752920987358dd728c9920802435bc
+commandlineoptions:97d170e1550eee4afc0af065b78cda302a97674c
+suitesfrom:no-suites-from-option
+file:552886e8e92c37e9087f36616b9bd8903ef1e777
+--suite Ui.Login Tests
+--suite Ui.Smoke Tests

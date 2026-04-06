@@ -13,3 +13,45 @@ Step 3 : Install Robot Framework Language Server (by Robocorp) --> File > Settin
 Step 4  : Create Project folder stucture 
 
 
+	cd C:\Development\RFLearning
+	mkdir tests\smoke tests\ui resources\keywords resources\page_objects resources\variables\locators config libraries test_data results
+	
+	
+Run Tests — Selective Execution Commands
+Run all tests in the file:
+>> robot --outputdir results tests/ui/login_tests.robot
+
+Run only smoke tests:
+>> robot --include smoke --outputdir results tests/ui/login_tests.robot
+
+Run smoke and critical
+>> robot --include smoke --include critical --outputdir results tests/ui/login_tests.robot
+
+Exclude wip tests:
+>> robot --exclude wip --outputdir results tests/ui/login_tests.robot
+
+Run one specific test by name:
+robot --test "TC-LOGIN-002 Valid Login Should Reach Dashboard" --outputdir results tests/ui/login_tests.robot
+
+
+
+Feature 3 — Logging Best Practices
+Robot Framework has 5 log levels:
+
+Level	Use for
+TRACE	Very detailed debug info
+DEBUG	Developer debugging
+INFO	Normal execution info (default)
+WARN	Something unexpected but non-fatal
+ERROR	Serious problem
+
+
+
+Feature 4 — Parallel Execution with pabot
+pabot (Parallel Robot) runs multiple test suites simultaneously using multiple browser instances.
+
+>> pip install robotframework-pabot
+
+
+Run in parallel 
+>> pabot --processes 2 --outputdir results tests/ui/

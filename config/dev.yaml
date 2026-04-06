@@ -1,0 +1,23 @@
+# =============================================
+# Development Environment Configuration
+# =============================================
+
+environment: dev
+
+application:
+  base_url: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+  app_name: "OrangeHRM"
+
+credentials:
+  username: "Admin"
+  password: "admin123"
+
+browser:
+  name: "chrome"
+  headless: false
+  implicit_wait: 10
+  explicit_wait: 30
+
+reporting:
+  screenshots_on_failure: true
+  screenshots_dir: "results/screenshots"

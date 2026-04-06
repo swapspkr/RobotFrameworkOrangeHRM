@@ -1,45 +1,447 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.3 on win32)" generated="2026-04-06T02:33:19.202818" rpa="false" schemaversion="5">
-<suite id="s1" name="First Test" source="C:\Development\OrangeHRMRobotFramework\tests\smoke\first_test.robot">
-<test id="s1-t1" name="TC-002 Login Page Should Have Username Field" line="18">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-04-06T02:33:19.584745" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
-<arg>${URL}</arg>
+<robot generator="Robot 7.4.2 (Python 3.14.3 on win32)" generated="2026-04-06T10:20:21.931823" rpa="false" schemaversion="5">
+<suite id="s1" name="Login Tests" source="C:\Development\OrangeHRMRobotFramework\tests\ui\login_tests.robot">
+<kw name="Initialize Test Suite" type="SETUP">
+<kw name="Load Environment Config" owner="common_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-06T10:20:22.629631" level="INFO">Loading config: config/dev.yaml</msg>
+<arg>Loading config: ${config_file}</arg>
+<arg>level=INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.628717" elapsed="0.004158"/>
+</kw>
+<kw name="Read Config" owner="config_reader">
+<msg time="2026-04-06T10:20:22.648294" level="INFO">${config} = {'environment': 'dev', 'application': {'base_url': 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login', 'app_name': 'OrangeHRM'}, 'credentials': {'username': 'Admin', 'password': 'adm...</msg>
+<var>${config}</var>
+<arg>${config_file}</arg>
+<doc>Reads a YAML config file and returns its contents as a dictionary.
+Substitutes ${VAR_NAME} placeholders with OS environment variables.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.633242" elapsed="0.015223"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-04-06T10:20:22.649273" level="INFO">${BASE_URL} = https://opensource-demo.orangehrmlive.com/web/index.php/auth/login</msg>
+<arg>${BASE_URL}</arg>
+<arg>${config}[application][base_url]</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.648733" elapsed="0.000653"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-04-06T10:20:22.650044" level="INFO">${APP_NAME} = OrangeHRM</msg>
+<arg>${APP_NAME}</arg>
+<arg>${config}[application][app_name]</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.649603" elapsed="0.000546"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-04-06T10:20:22.650733" level="INFO">${ADMIN_USERNAME} = Admin</msg>
+<arg>${ADMIN_USERNAME}</arg>
+<arg>${config}[credentials][username]</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.650325" elapsed="0.000509"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-04-06T10:20:22.651375" level="INFO">${ADMIN_PASSWORD} = admin123</msg>
+<arg>${ADMIN_PASSWORD}</arg>
+<arg>${config}[credentials][password]</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.650996" elapsed="0.000480"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-04-06T10:20:22.652025" level="INFO">${BROWSER} = chrome</msg>
 <arg>${BROWSER}</arg>
+<arg>${config}[browser][name]</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.651643" elapsed="0.000478"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-04-06T10:20:22.652782" level="INFO">${HEADLESS} = False</msg>
+<arg>${HEADLESS}</arg>
+<arg>${config}[browser][headless]</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.652279" elapsed="0.000627"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-04-06T10:20:22.653544" level="INFO">${IMPLICIT_WAIT} = 10</msg>
+<arg>${IMPLICIT_WAIT}</arg>
+<arg>${config}[browser][implicit_wait]</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.653095" elapsed="0.000574"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-04-06T10:20:22.654261" level="INFO">${EXPLICIT_WAIT} = 30</msg>
+<arg>${EXPLICIT_WAIT}</arg>
+<arg>${config}[browser][explicit_wait]</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.653879" elapsed="0.000476"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-06T10:20:22.654945" level="INFO">✔ Config loaded | ENV: dev | URL: https://opensource-demo.orangehrmlive.com/web/index.php/auth/login</msg>
+<arg>✔ Config loaded | ENV: ${config}[environment] | URL: ${BASE_URL}</arg>
+<arg>level=INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.654512" elapsed="0.001009"/>
+</kw>
+<doc>Reads the active YAML config and sets all suite variables.
+Call this in Suite Setup before opening the browser.
+Override config file via: --variable CONFIG_FILE:config/staging.yaml</doc>
+<status status="PASS" start="2026-04-06T10:20:22.627455" elapsed="0.028194"/>
+</kw>
+<kw name="Open My Browser" owner="browser_setup">
+<kw name="Get Chrome Options" owner="browser_setup">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-04-06T10:20:22.663042" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000020B69A79940&gt;</msg>
+<var>${options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.656714" elapsed="0.006457"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>$options.add_argument('--no-sandbox')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.663376" elapsed="0.000527"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>$options.add_argument('--disable-dev-shm-usage')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.664100" elapsed="0.000467"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>$options.add_argument('--window-size=1920,1080')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.664760" elapsed="0.000441"/>
+</kw>
+<if>
+<branch type="IF" condition="${headless}">
+<kw name="Evaluate" owner="BuiltIn">
+<arg>$options.add_argument('--headless=new')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-04-06T10:20:22.665658" elapsed="0.000096"/>
+</kw>
+<status status="NOT RUN" start="2026-04-06T10:20:22.665382" elapsed="0.000459"/>
+</branch>
+<status status="PASS" start="2026-04-06T10:20:22.665338" elapsed="0.000598"/>
+</if>
+<return>
+<value>${options}</value>
+<status status="PASS" start="2026-04-06T10:20:22.665996" elapsed="0.000120"/>
+</return>
+<msg time="2026-04-06T10:20:22.666335" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000020B69A79940&gt;</msg>
+<var>${options}</var>
+<arg>${headless}</arg>
+<doc>Builds ChromeOptions with stability flags and optional headless mode.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.656362" elapsed="0.010054"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-04-06T10:20:22.667038" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-04-06T02:33:19.584238" elapsed="3.124810"/>
+<status status="PASS" start="2026-04-06T10:20:22.666628" elapsed="3.747075"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-04-06T02:33:22.709576" elapsed="0.032417"/>
+<status status="PASS" start="2026-04-06T10:20:26.414145" elapsed="0.025903"/>
 </kw>
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2026-04-06T02:33:22.850679" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-04-06T02:33:22.851101" level="FAIL">Page should have contained element 'xpath=//label[contains(text(),'Username')]' but did not.</msg>
-<arg>xpath=//label[contains(text(),'Username')]</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="FAIL" start="2026-04-06T02:33:22.742388" elapsed="0.116496">Page should have contained element 'xpath=//label[contains(text(),'Username')]' but did not.</status>
+<kw name="Set Browser Implicit Wait" owner="SeleniumLibrary">
+<arg>${IMPLICIT_WAIT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-04-06T10:20:26.440341" elapsed="0.001631"/>
 </kw>
+<doc>Opens Chrome and navigates to the given URL.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.655875" elapsed="3.786289"/>
+</kw>
+<doc>Loads environment config then opens the browser.</doc>
+<status status="PASS" start="2026-04-06T10:20:22.626507" elapsed="3.815758"/>
+</kw>
+<test id="s1-t1" name="TC-LOGIN-002 Valid Login Should Reach Dashboard" line="26">
+<kw name="Navigate To Login Page" type="SETUP">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Logout" owner="dashboard_page">
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log" owner="BuiltIn">
+<arg>Clicking element: ${locator}</arg>
+<arg>level=DEBUG</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-06T10:20:26.445602" elapsed="0.000456"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-04-06T10:20:47.080845" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-04-06T10:20:47.081400" level="FAIL">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</msg>
+<arg>${locator}</arg>
+<arg>timeout=15 sec</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-04-06T10:20:26.446237" elapsed="20.701491">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-04-06T10:20:47.148088" elapsed="0.000122"/>
+</kw>
+<arg>${USER_MENU}</arg>
+<doc>Waits for element to be clickable then clicks it.</doc>
+<status status="FAIL" start="2026-04-06T10:20:26.445252" elapsed="20.703132">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+</kw>
+<kw name="Click On Element" owner="common_keywords">
+<arg>${LOGOUT_OPTION}</arg>
+<doc>Waits for element to be clickable then clicks it.</doc>
+<status status="NOT RUN" start="2026-04-06T10:20:47.148628" elapsed="0.000092"/>
+</kw>
+<doc>Clicks the user menu then the Logout option.</doc>
+<status status="FAIL" start="2026-04-06T10:20:26.444916" elapsed="20.703929">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+</kw>
+<arg>Logout</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-04-06T10:20:26.444442" elapsed="20.704519"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-04-06T10:20:47.149343" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-04-06T10:20:47.149106" elapsed="0.336075"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@name="username"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-06T10:20:47.485488" elapsed="0.354474"/>
+</kw>
+<doc>Resets browser to the login URL before each test.</doc>
+<status status="PASS" start="2026-04-06T10:20:26.444070" elapsed="21.396112"/>
+</kw>
+<kw name="Login With Credentials" owner="login_page">
+<kw name="Enter Username" owner="login_page">
+<kw name="Enter Text Into Field" owner="common_keywords">
+<kw name="Log" owner="BuiltIn">
+<arg>Typing '${value}' into: ${locator}</arg>
+<arg>level=DEBUG</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-06T10:20:47.841934" elapsed="0.000651"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=15 sec</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-06T10:20:47.842805" elapsed="0.029719"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-06T10:20:47.872860" elapsed="0.046601"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-06T10:20:47.920252" level="INFO">Typing text 'Admin' into text field 'xpath=//input[@name='username']'.</msg>
+<arg>${locator}</arg>
+<arg>${value}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-06T10:20:47.919817" elapsed="0.083687"/>
+</kw>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${username}</arg>
+<doc>Clears a field and types the given value.</doc>
+<status status="PASS" start="2026-04-06T10:20:47.841379" elapsed="0.162344"/>
+</kw>
+<arg>${username}</arg>
+<doc>Types the given text into the username field.</doc>
+<status status="PASS" start="2026-04-06T10:20:47.840990" elapsed="0.162848"/>
+</kw>
+<kw name="Enter Password" owner="login_page">
+<kw name="Enter Text Into Field" owner="common_keywords">
+<kw name="Log" owner="BuiltIn">
+<arg>Typing '${value}' into: ${locator}</arg>
+<arg>level=DEBUG</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-06T10:20:48.005018" elapsed="0.000528"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=15 sec</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-06T10:20:48.005749" elapsed="0.018286"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-06T10:20:48.024330" elapsed="0.031192"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-06T10:20:48.056118" level="INFO">Typing text 'WRONG_PASSWORD_TO_FORCE_FAIL' into text field 'xpath=//input[@name='password']'.</msg>
+<arg>${locator}</arg>
+<arg>${value}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-06T10:20:48.055774" elapsed="0.118089"/>
+</kw>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Clears a field and types the given value.</doc>
+<status status="PASS" start="2026-04-06T10:20:48.004604" elapsed="0.169468"/>
+</kw>
+<arg>${password}</arg>
+<doc>Types the given text into the password field.</doc>
+<status status="PASS" start="2026-04-06T10:20:48.004104" elapsed="0.170072"/>
+</kw>
+<kw name="Click Login Button" owner="login_page">
+<kw name="Click On Element" owner="common_keywords">
+<kw name="Log" owner="BuiltIn">
+<arg>Clicking element: ${locator}</arg>
+<arg>level=DEBUG</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-06T10:20:48.175185" elapsed="0.000472"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=15 sec</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-06T10:20:48.175844" elapsed="0.017692"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-04-06T10:20:48.194130" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-06T10:20:48.193814" elapsed="0.064350"/>
+</kw>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Waits for element to be clickable then clicks it.</doc>
+<status status="PASS" start="2026-04-06T10:20:48.174826" elapsed="0.083578"/>
+</kw>
+<doc>Clicks the Login submit button.</doc>
+<status status="PASS" start="2026-04-06T10:20:48.174419" elapsed="0.084122"/>
+</kw>
+<arg>${ADMIN_USERNAME}</arg>
+<arg>WRONG_PASSWORD_TO_FORCE_FAIL</arg>
+<doc>Performs a full login with the given username and password.</doc>
+<status status="PASS" start="2026-04-06T10:20:47.840478" elapsed="0.418156"/>
+</kw>
+<kw name="Verify Dashboard Is Loaded" owner="dashboard_page">
+<kw name="Element Should Be Visible On Page" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-04-06T10:21:08.858448" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-04-06T10:21:08.859071" level="FAIL">Element not found: xpath=//h6[normalize-space()='Dashboard']</msg>
+<arg>${locator}</arg>
+<arg>timeout=15 sec</arg>
+<arg>error=Element not found: ${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-04-06T10:20:48.259754" elapsed="20.602385">Element not found: xpath=//h6[normalize-space()='Dashboard']</status>
+</kw>
+<arg>${DASHBOARD_HEADER}</arg>
+<doc>Waits up to 15 seconds for element to appear, then asserts it.</doc>
+<status status="FAIL" start="2026-04-06T10:20:48.259365" elapsed="20.603323">Element not found: xpath=//h6[normalize-space()='Dashboard']</status>
+</kw>
+<doc>Asserts the Dashboard heading is visible after login.</doc>
+<status status="FAIL" start="2026-04-06T10:20:48.258920" elapsed="20.604138">Element not found: xpath=//h6[normalize-space()='Dashboard']</status>
+</kw>
+<kw name="Handle Test Teardown" owner="browser_setup" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<kw name="Take Screenshot On Failure" owner="browser_setup">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-04-06T10:21:08.867241" level="INFO">${timestamp} = 20260406_102108</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-04-06T10:21:08.866718" elapsed="0.000653"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-04-06T10:21:08.868107" level="INFO">${safe_name} = TC-LOGIN-002_Valid_Login_Should_Reach_Dashboard</msg>
+<var>${safe_name}</var>
+<arg>${TEST NAME}</arg>
+<arg>${SPACE}</arg>
+<arg>_</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-04-06T10:21:08.867625" elapsed="0.000575"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-04-06T10:21:08.868815" level="INFO">${filename} = FAIL_TC-LOGIN-002_Valid_Login_Should_Reach_Dashboard_20260406_102108.png</msg>
+<var>${filename}</var>
+<arg>FAIL_${safe_name}_${timestamp}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-04-06T10:21:08.868377" elapsed="0.000527"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-04-06T10:21:08.869493" level="INFO">${filepath} = results/screenshots/FAIL_TC-LOGIN-002_Valid_Login_Should_Reach_Dashboard_20260406_102108.png</msg>
+<var>${filepath}</var>
+<arg>${SCREENSHOTS_DIR}/${filename}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-04-06T10:21:08.869074" elapsed="0.000510"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-04-06T10:21:08.870336" level="INFO" html="true">Directory '&lt;a href="file://C:\Development\OrangeHRMRobotFramework\results\screenshots"&gt;C:\Development\OrangeHRMRobotFramework\results\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${SCREENSHOTS_DIR}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-04-06T10:21:08.869749" elapsed="0.000760"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-04-06T10:21:09.044637" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="results/screenshots/FAIL_TC-LOGIN-002_Valid_Login_Should_Reach_Dashboard_20260406_102108.png"&gt;&lt;img src="results/screenshots/FAIL_TC-LOGIN-002_Valid_Login_Should_Reach_Dashboard_20260406_102108.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${filepath}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-04-06T10:21:08.871186" elapsed="0.173960"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<arg>${filepath}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-04-06T10:21:08.870702" elapsed="0.174792"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-06T10:21:09.047243" level="WARN">Screenshot saved: results/screenshots/FAIL_TC-LOGIN-002_Valid_Login_Should_Reach_Dashboard_20260406_102108.png</msg>
+<arg>Screenshot saved: ${filepath}</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-06T10:21:09.046004" elapsed="0.001955"/>
+</kw>
+<doc>Captures a timestamped screenshot when a test fails.
+Called automatically from Test Teardown.
+Screenshots saved to: results/screenshots/</doc>
+<status status="PASS" start="2026-04-06T10:21:08.866176" elapsed="0.181957"/>
+</kw>
+<arg>Take Screenshot On Failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-04-06T10:21:08.864958" elapsed="0.183266"/>
+</kw>
+<doc>Runs after EVERY test. Takes screenshot only on failure.
+Add this as Test Teardown in your test suite Settings.</doc>
+<status status="PASS" start="2026-04-06T10:21:08.863920" elapsed="0.184395"/>
+</kw>
+<doc>Logs in with valid credentials — confirms dashboard loads.</doc>
+<tag>critical</tag>
+<tag>login</tag>
+<tag>regression</tag>
+<tag>smoke</tag>
+<tag>ui</tag>
+<status status="FAIL" start="2026-04-06T10:20:26.442391" elapsed="42.606015">Element not found: xpath=//h6[normalize-space()='Dashboard']</status>
+</test>
+<kw name="Close My Browser" owner="browser_setup" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="NOT RUN" start="2026-04-06T02:33:22.859173" elapsed="0.000114"/>
+<status status="PASS" start="2026-04-06T10:21:09.049600" elapsed="2.291239"/>
 </kw>
-<doc>Verifies the username input field is present on the login page.</doc>
-<status status="FAIL" start="2026-04-06T02:33:19.582652" elapsed="3.276866">Page should have contained element 'xpath=//label[contains(text(),'Username')]' but did not.</status>
-</test>
-<doc>My first Robot Framework test.</doc>
-<status status="FAIL" start="2026-04-06T02:33:19.223935" elapsed="3.636630"/>
+<doc>Closes all open browser windows cleanly.</doc>
+<status status="PASS" start="2026-04-06T10:21:09.049296" elapsed="2.291889"/>
+</kw>
+<doc>Login page functional tests.
+Demonstrates: tags, screenshot on failure, test teardown, logging.
+
+Run all:        robot tests/ui/login_tests.robot
+Run smoke only: robot --include smoke tests/ui/login_tests.robot
+Skip wip:       robot --exclude wip tests/ui/login_tests.robot</doc>
+<status status="FAIL" start="2026-04-06T10:20:21.949357" elapsed="49.391985"/>
 </suite>
 <statistics>
 <total>
 <stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="0" fail="1" skip="0">critical</stat>
+<stat pass="0" fail="1" skip="0">login</stat>
+<stat pass="0" fail="1" skip="0">regression</stat>
+<stat pass="0" fail="1" skip="0">smoke</stat>
+<stat pass="0" fail="1" skip="0">ui</stat>
 </tag>
 <suite>
-<stat name="First Test" id="s1" pass="0" fail="1" skip="0">First Test</stat>
+<stat name="Login Tests" id="s1" pass="0" fail="1" skip="0">Login Tests</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2026-04-06T10:21:09.047243" level="WARN">Screenshot saved: results/screenshots/FAIL_TC-LOGIN-002_Valid_Login_Should_Reach_Dashboard_20260406_102108.png</msg>
 </errors>
 </robot>
