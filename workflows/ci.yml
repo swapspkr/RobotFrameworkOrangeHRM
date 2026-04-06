@@ -50,7 +50,8 @@ jobs:
       # Step 5: Run smoke tests
       - name: Run Smoke Tests
         env:
-          STAGING_PASSWORD: ${{ secrets.STAGING_PASSWORD }}  # from GitHub Secrets
+          DEV_ADMIN_USERNAME: ${{ secrets.DEV_ADMIN_USERNAME }}
+          DEV_ADMIN_PASSWORD: ${{ secrets.DEV_ADMIN_PASSWORD }}  # from GitHub Secrets
         run: |
           robot \
             --include smoke \
