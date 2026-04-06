@@ -9,8 +9,8 @@ application:
   app_name: "OrangeHRM"
 
 credentials:
-  admin_username: "${DEV_ADMIN_USERNAME}"
-  admin_password: "${DEV_ADMIN_PASSWORD}"
+  username: "${DEV_ADMIN_USERNAME}"
+  password: "${DEV_ADMIN_PASSWORD}"
 
 browser:
   name: "chrome"
