@@ -1,0 +1,27 @@
+# Core Robot Framework
+robotframework>=7.0.0
+
+# Web UI Automation
+robotframework-seleniumlibrary>=6.3.0
+webdriver-manager>=4.0.1
+
+# API Testing
+robotframework-requestslibrary>=0.9.7
+
+# Database Testing
+robotframework-databaselibrary>=1.4.0
+
+# Parallel Execution
+robotframework-pabot>=2.19.0
+
+# Reporting
+allure-robotframework>=2.13.0
+
+# Utilities
+PyYAML>=6.0.1
+Faker>=24.0.0
+python-dotenv>=1.0.1
+jsonpath-ng>=1.6.1
+
+# Browser (optional - alternative to Selenium)
+# robotframework-browser>=18.0.0

@@ -1,0 +1,127 @@
+# ================================================================
+# GitHub Actions CI Pipeline — Robot Framework Test Automation
+# ================================================================
+name: Robot Framework CI
+
+# TRIGGERS — when does this pipeline run?
+on:
+  push:
+    branches: [ main, develop ]          # every push to main or develop
+  pull_request:
+    branches: [ main ]                   # every PR targeting main
+  schedule:
+    - cron: "0 1 * * *"                  # nightly at 1:00 AM UTC
+  workflow_dispatch:                     # manual trigger from GitHub UI
+
+# ENVIRONMENT VARIABLES available to all jobs
+env:
+  PYTHON_VERSION: "3.12"
+  RESULTS_DIR: results
+
+jobs:
+
+  # ──────────────────────────────────────────────────────────────
+  # JOB 1: SMOKE TESTS — fast, runs on every push/PR
+  # ──────────────────────────────────────────────────────────────
+  smoke-tests:
+    name: "Smoke Tests"
+    runs-on: ubuntu-latest              # free GitHub-hosted Linux runner
+
+    steps:
+      # Step 1: Get the code
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Step 2: Install Python
+      - name: Set Up Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip                    # cache pip downloads for speed
+
+      # Step 3: Install all test dependencies
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      # Step 4: Install Chrome (already on ubuntu-latest, but pin version)
+      - name: Setup Chrome Browser
+        uses: browser-actions/setup-chrome@latest
+
+      # Step 5: Run smoke tests
+      - name: Run Smoke Tests
+        env:
+          STAGING_PASSWORD: ${{ secrets.STAGING_PASSWORD }}  # from GitHub Secrets
+        run: |
+          robot \
+            --include smoke \
+            --variable CONFIG_FILE:config/dev.yaml \
+            --variable HEADLESS:true \
+            --outputdir ${{ env.RESULTS_DIR }} \
+            --log smoke_log.html \
+            --report smoke_report.html \
+            tests/
+
+      # Step 6: Upload results even if tests fail
+      - name: Upload Test Results
+        if: always()                    # run this step even if tests failed
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-test-results
+          path: results/
+          retention-days: 30
+
+  # ──────────────────────────────────────────────────────────────
+  # JOB 2: REGRESSION — full suite, runs nightly or on main merge
+  # ──────────────────────────────────────────────────────────────
+  regression-tests:
+    name: "Full Regression"
+    runs-on: ubuntu-latest
+    needs: smoke-tests                  # only run if smoke tests passed
+
+    # Only run on: nightly schedule OR merge to main
+    if: |
+      github.event_name == 'schedule' ||
+      (github.event_name == 'push' && github.ref == 'refs/heads/main')
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@latest
+
+      - name: Run Full Regression
+        env:
+          STAGING_PASSWORD: ${{ secrets.STAGING_PASSWORD }}
+        run: |
+          robot \
+            --exclude wip \
+            --variable CONFIG_FILE:config/dev.yaml \
+            --variable HEADLESS:true \
+            --outputdir ${{ env.RESULTS_DIR }} \
+            tests/
+
+      - name: Upload Regression Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: regression-results
+          path: results/
+          retention-days: 30
+
+      # Optional: Notify on failure via GitHub issue or Slack
+      - name: Notify on Failure
+        if: failure()
+        run: |
+          echo "Regression tests FAILED on $(date)"
+          echo "Branch: ${{ github.ref }}"
+          echo "Commit: ${{ github.sha }}"
