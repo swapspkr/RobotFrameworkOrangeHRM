@@ -6,7 +6,7 @@ robotframework-seleniumlibrary>=6.3.0
 webdriver-manager>=4.0.1
 
 # API Testing
-robotframework-requestslibrary>=0.9.7
+robotframework-requests>=0.9.7
 
 # Database Testing
 robotframework-databaselibrary>=1.4.0
