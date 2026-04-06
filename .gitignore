@@ -1,0 +1,66 @@
+# ===========================
+# Python / Byte-compiled
+# ===========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+.Python
+env/
+venv/
+.venv/
+.env
+
+# ===========================
+# Robot Framework Outputs
+# ===========================
+results/*.html
+results/*.xml
+results/*.log
+results/screenshots/
+!results/.gitkeep
+
+# ===========================
+# Allure Reports
+# ===========================
+allure-results/
+allure-report/
+
+# ===========================
+# Pabot Temp Files
+# ===========================
+.pabot_cache/
+pabot_results/
+
+# ===========================
+# IDE / Editor
+# ===========================
+.idea/
+.vscode/settings.json
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+
+# ===========================
+# OS Generated
+# ===========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===========================
+# Secrets / Credentials
+# ===========================
+config/prod.yaml
+.env.local
+.env.production
+secrets/
+
+# ===========================
+# Logs
+# ===========================
+logs/
+*.log
