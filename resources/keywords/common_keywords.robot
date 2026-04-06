@@ -20,7 +20,6 @@ Load Environment Config
     Set Suite Variable    ${ADMIN_USERNAME}   ${config}[credentials][username]
     Set Suite Variable    ${ADMIN_PASSWORD}   ${config}[credentials][password]
     Set Suite Variable    ${BROWSER}          ${config}[browser][name]
-    Set Suite Variable    ${HEADLESS}         ${config}[browser][headless]
     Set Suite Variable    ${IMPLICIT_WAIT}    ${config}[browser][implicit_wait]
     Set Suite Variable    ${EXPLICIT_WAIT}    ${config}[browser][explicit_wait]
    Log    ✔ Config loaded | ENV: ${config}[environment] | URL: ${BASE_URL}    level=INFO
