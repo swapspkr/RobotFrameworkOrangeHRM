@@ -11,8 +11,6 @@
 # WebDriver endpoint: http://localhost:4444/wd/hub
 # ================================================================
 
-version: "3.8"
-
 networks:
   grid:
     driver: bridge

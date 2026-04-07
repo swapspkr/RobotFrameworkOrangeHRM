@@ -159,29 +159,28 @@ jobs:
       - name: Install Dependencies
         run: pip install -r requirements.txt
 
-      # Start Selenium Grid (hub + chrome + firefox) via Docker Compose
+      # Start Selenium Grid hub + 3 Chrome replicas + Firefox in one step
       - name: Start Selenium Grid
-        run: docker compose up -d
+        run: docker compose up -d --scale chrome=3
 
-      # Poll /wd/hub/status until Grid reports ready (max 90 s)
+      # Poll /wd/hub/status until Grid reports ready (max 120 s)
+      # Grid 4 returns: {"value":{"ready": true, ...}}
+      # Use grep -E to handle optional space: '"ready": true' or '"ready":true'
       - name: Wait for Grid to Be Ready
         run: |
           echo "Waiting for Selenium Grid hub..."
-          timeout=90
-          until curl -s http://localhost:4444/wd/hub/status | grep -q '"ready":true'; do
+          elapsed=0
+          until curl -s http://localhost:4444/wd/hub/status | grep -qE '"ready"\s*:\s*true'; do
             sleep 5
-            timeout=$((timeout - 5))
-            if [ $timeout -le 0 ]; then
-              echo "ERROR: Selenium Grid did not become ready within 90 seconds."
+            elapsed=$((elapsed + 5))
+            if [ $elapsed -ge 120 ]; then
+              echo "ERROR: Selenium Grid did not become ready within 120 seconds."
               docker compose logs
               exit 1
             fi
+            echo "Still waiting... ${elapsed}s elapsed"
           done
-          echo "Selenium Grid is ready."
-
-      # Scale Chrome to 3 replicas so 3 parallel sessions run simultaneously
-      - name: Scale Chrome Nodes
-        run: docker compose up -d --scale chrome=3 --no-recreate
+          echo "Selenium Grid is ready after ${elapsed}s."
 
       - name: Run Tests in Parallel on Selenium Grid
         env:
