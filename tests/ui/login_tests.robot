@@ -25,8 +25,7 @@ TC-LOGIN-001 Login Page Should Load Correctly
 
 TC-LOGIN-002 Valid Login Should Reach Dashboard
     [Documentation]    Logs in with valid credentials — confirms dashboard loads.
-#    [Tags]    smoke    critical
-    [Tags]    run_this
+    [Tags]    smoke    critical
     Login With Credentials    ${ADMIN_USERNAME}   ${ADMIN_PASSWORD}
     Verify Dashboard Is Loaded
 
