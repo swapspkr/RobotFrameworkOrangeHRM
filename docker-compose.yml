@@ -1,0 +1,76 @@
+# ================================================================
+# Selenium Grid 4 — Docker Compose
+# ================================================================
+# Usage:
+#   docker compose up -d              → start hub + chrome + firefox
+#   docker compose down               → stop and remove containers
+#   docker compose logs -f            → tail logs
+#   docker compose scale chrome=3     → scale Chrome nodes
+#
+# Grid Console:       http://localhost:4444
+# WebDriver endpoint: http://localhost:4444/wd/hub
+# ================================================================
+
+version: "3.8"
+
+networks:
+  grid:
+    driver: bridge
+
+services:
+
+  # ── Hub ──────────────────────────────────────────────────────────
+  selenium-hub:
+    image: selenium/hub:4.18.1
+    container_name: selenium-hub
+    networks:
+      - grid
+    ports:
+      - "4442:4442"   # event bus publish port
+      - "4443:4443"   # event bus subscribe port
+      - "4444:4444"   # hub UI + WebDriver endpoint
+    environment:
+      - SE_SESSION_REQUEST_TIMEOUT=300
+      - SE_SESSION_RETRY_INTERVAL=15
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4444/wd/hub/status"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+
+  # ── Chrome Node ───────────────────────────────────────────────────
+  chrome:
+    image: selenium/node-chrome:4.18.1
+    container_name: selenium-chrome
+    networks:
+      - grid
+    depends_on:
+      selenium-hub:
+        condition: service_started
+    shm_size: "2gb"                    # prevents Chrome from crashing in Docker
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=3
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_VNC_NO_PASSWORD=1           # VNC access without password for debugging
+
+  # ── Firefox Node ──────────────────────────────────────────────────
+  firefox:
+    image: selenium/node-firefox:4.18.1
+    container_name: selenium-firefox
+    networks:
+      - grid
+    depends_on:
+      selenium-hub:
+        condition: service_started
+    shm_size: "2gb"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=3
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_VNC_NO_PASSWORD=1

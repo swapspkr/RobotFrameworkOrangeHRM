@@ -8,12 +8,29 @@ Resource         ../variables/common_variables.robot
 
 *** Keywords ***
 Open My Browser
-    [Documentation]    Opens Chrome and navigates to the given URL.
+    [Documentation]    Opens browser locally or via Selenium Grid depending on USE_GRID.
     [Arguments]    ${url}=${BASE_URL}    ${browser}=${BROWSER}    ${headless}=${HEADLESS}
-    ${options}=    Get Chrome Options    ${headless}
-    Open Browser    ${url}    ${browser}    options=${options}
-    Maximize Browser Window
+    ${use_grid}=    Convert To Boolean    ${USE_GRID}
+    IF    ${use_grid}
+        Open Browser On Grid    ${url}    ${browser}
+    ELSE
+        ${options}=    Get Chrome Options    ${headless}
+        Open Browser    ${url}    ${browser}    options=${options}
+        Maximize Browser Window
+    END
     Set Browser Implicit Wait    ${IMPLICIT_WAIT}
+
+Open Browser On Grid
+    [Documentation]    Opens browser via Selenium Grid remote WebDriver.
+    ...                Grid URL set by GRID_URL variable (default: http://localhost:4444/wd/hub).
+    ...                Nodes run headless inside Docker — headless flag is forced on.
+    [Arguments]    ${url}=${BASE_URL}    ${browser}=${BROWSER}
+    ${options}=    Get Chrome Options    ${TRUE}    # Grid nodes always run headless
+    Open Browser    ${url}    ${browser}
+    ...    remote_url=${GRID_URL}
+    ...    options=${options}
+    Set Window Size    1920    1080
+    Log    Browser opened on Selenium Grid: ${GRID_URL}    level=INFO
 
 Get Chrome Options
     [Documentation]    Builds ChromeOptions with stability flags and optional headless mode.

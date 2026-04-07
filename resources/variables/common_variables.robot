@@ -31,6 +31,13 @@ ${IMPLICIT_WAIT}        5
 ${EXPLICIT_WAIT}        30
 
 # -------------------------------------------------------
+# Selenium Grid — override via CLI:
+#   robot --variable USE_GRID:true --variable GRID_URL:http://localhost:4444/wd/hub
+# -------------------------------------------------------
+${USE_GRID}             ${FALSE}
+${GRID_URL}             http://localhost:4444/wd/hub
+
+# -------------------------------------------------------
 # Timeouts (used in page objects and keywords)
 # -------------------------------------------------------
 ${SHORT_WAIT}           5 sec

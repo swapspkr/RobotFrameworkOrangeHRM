@@ -22,7 +22,11 @@ Load Environment Config
     Set Suite Variable    ${BROWSER}          ${config}[browser][name]
     Set Suite Variable    ${IMPLICIT_WAIT}    ${config}[browser][implicit_wait]
     Set Suite Variable    ${EXPLICIT_WAIT}    ${config}[browser][explicit_wait]
-   Log    ✔ Config loaded | ENV: ${config}[environment] | URL: ${BASE_URL}    level=INFO
+    # Grid config — falls back to defaults if 'grid' key not present in YAML
+    ${grid}=    Evaluate    $config.get('grid', {})
+    Set Suite Variable    ${USE_GRID}    ${grid.get('enabled', False)}
+    Set Suite Variable    ${GRID_URL}    ${grid.get('url', 'http://localhost:4444/wd/hub')}
+   Log    ✔ Config loaded | ENV: ${config}[environment] | URL: ${BASE_URL} | Grid: ${USE_GRID}    level=INFO
 
 # ============================================================
 # WAITS & INTERACTIONS (your existing keywords below)

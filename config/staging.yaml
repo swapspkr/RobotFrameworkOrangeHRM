@@ -21,3 +21,7 @@ browser:
 reporting:
   screenshots_on_failure: true
   screenshots_dir: "results/screenshots"
+
+grid:
+  enabled: false                    # set to true to run via Selenium Grid
+  url: "http://selenium-hub:4444/wd/hub"    # service name when running inside Docker network
