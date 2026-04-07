@@ -8,6 +8,8 @@ Resource         ../variables/locators/dashboard_locators.robot
 *** Keywords ***
 Verify Dashboard Is Loaded
     [Documentation]    Asserts the Dashboard heading is visible after login.
+    Wait Until Location Contains    /dashboard    10s
+    Wait Until Page Contains        Dashboard     10s
     Element Should Be Visible On Page    ${DASHBOARD_HEADER}
 
 Get Logged In User Name

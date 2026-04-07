@@ -27,7 +27,7 @@ ${ADMIN_PASSWORD}       ${EMPTY}
 # -------------------------------------------------------
 ${BROWSER}              chrome
 ${HEADLESS}             ${FALSE}
-${IMPLICIT_WAIT}        10
+${IMPLICIT_WAIT}        5
 ${EXPLICIT_WAIT}        30
 
 # -------------------------------------------------------

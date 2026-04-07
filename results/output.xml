@@ -1,162 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Rebot 7.4.2 (Python 3.14.3 on win32)" generated="2026-04-06T10:33:00.812730" rpa="false" schemaversion="5">
-<suite id="s1" name="Ui" source="C:\Development\OrangeHRMRobotFramework\tests\ui">
-<suite id="s1-s1" name="Login Tests" source="C:\Development\OrangeHRMRobotFramework\tests\ui\login_tests.robot">
+<robot generator="Robot 7.4.2 (Python 3.14.3 on win32)" generated="2026-04-07T01:12:02.930781" rpa="false" schemaversion="5">
+<suite id="s1" name="Login Tests" source="C:\Development\OrangeHRMRobotFramework\tests\ui\login_tests.robot">
 <kw name="Initialize Test Suite" type="SETUP">
 <kw name="Load Environment Config" owner="common_keywords">
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.262987" level="INFO">Loading config: config/dev.yaml</msg>
+<msg time="2026-04-07T01:12:03.578769" level="INFO">Loading config: config/dev.yaml</msg>
 <arg>Loading config: ${config_file}</arg>
 <arg>level=INFO</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.262558" elapsed="0.000503"/>
+<status status="PASS" start="2026-04-07T01:12:03.577999" elapsed="0.000859"/>
 </kw>
 <kw name="Read Config" owner="config_reader">
-<msg time="2026-04-06T10:30:34.265141" level="INFO">${config} = {'environment': 'dev', 'application': {'base_url': 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login', 'app_name': 'OrangeHRM'}, 'credentials': {'username': 'Admin', 'password': 'adm...</msg>
+<msg time="2026-04-07T01:12:03.602892" level="INFO">${config} = {'environment': 'dev', 'application': {'base_url': 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login', 'app_name': 'OrangeHRM'}, 'credentials': {'username': 'Admin', 'password': 'adm...</msg>
 <var>${config}</var>
 <arg>${config_file}</arg>
 <doc>Reads a YAML config file and returns its contents as a dictionary.
 Substitutes ${VAR_NAME} placeholders with OS environment variables.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.263232" elapsed="0.001954"/>
+<status status="PASS" start="2026-04-07T01:12:03.579067" elapsed="0.023900"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.265729" level="INFO">${BASE_URL} = https://opensource-demo.orangehrmlive.com/web/index.php/auth/login</msg>
+<msg time="2026-04-07T01:12:03.603673" level="INFO">${BASE_URL} = https://opensource-demo.orangehrmlive.com/web/index.php/auth/login</msg>
 <arg>${BASE_URL}</arg>
 <arg>${config}[application][base_url]</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.265353" elapsed="0.000427"/>
+<status status="PASS" start="2026-04-07T01:12:03.603201" elapsed="0.000530"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.266237" level="INFO">${APP_NAME} = OrangeHRM</msg>
+<msg time="2026-04-07T01:12:03.604205" level="INFO">${APP_NAME} = OrangeHRM</msg>
 <arg>${APP_NAME}</arg>
 <arg>${config}[application][app_name]</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.265917" elapsed="0.000367"/>
+<status status="PASS" start="2026-04-07T01:12:03.603887" elapsed="0.000365"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.266710" level="INFO">${ADMIN_USERNAME} = Admin</msg>
+<msg time="2026-04-07T01:12:03.604687" level="INFO">${ADMIN_USERNAME} = Admin</msg>
 <arg>${ADMIN_USERNAME}</arg>
 <arg>${config}[credentials][username]</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.266410" elapsed="0.000346"/>
+<status status="PASS" start="2026-04-07T01:12:03.604383" elapsed="0.000349"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.267181" level="INFO">${ADMIN_PASSWORD} = admin123</msg>
+<msg time="2026-04-07T01:12:03.605154" level="INFO">${ADMIN_PASSWORD} = admin123</msg>
 <arg>${ADMIN_PASSWORD}</arg>
 <arg>${config}[credentials][password]</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.266882" elapsed="0.000344"/>
+<status status="PASS" start="2026-04-07T01:12:03.604856" elapsed="0.000342"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.267651" level="INFO">${BROWSER} = chrome</msg>
+<msg time="2026-04-07T01:12:03.605611" level="INFO">${BROWSER} = chrome</msg>
 <arg>${BROWSER}</arg>
 <arg>${config}[browser][name]</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.267351" elapsed="0.000346"/>
+<status status="PASS" start="2026-04-07T01:12:03.605321" elapsed="0.000335"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.268117" level="INFO">${HEADLESS} = False</msg>
-<arg>${HEADLESS}</arg>
-<arg>${config}[browser][headless]</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.267819" elapsed="0.000343"/>
-</kw>
-<kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.268582" level="INFO">${IMPLICIT_WAIT} = 10</msg>
+<msg time="2026-04-07T01:12:03.606076" level="INFO">${IMPLICIT_WAIT} = 10</msg>
 <arg>${IMPLICIT_WAIT}</arg>
 <arg>${config}[browser][implicit_wait]</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.268287" elapsed="0.000340"/>
+<status status="PASS" start="2026-04-07T01:12:03.605779" elapsed="0.000366"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.269049" level="INFO">${EXPLICIT_WAIT} = 30</msg>
+<msg time="2026-04-07T01:12:03.606608" level="INFO">${EXPLICIT_WAIT} = 30</msg>
 <arg>${EXPLICIT_WAIT}</arg>
 <arg>${config}[browser][explicit_wait]</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.268750" elapsed="0.000343"/>
+<status status="PASS" start="2026-04-07T01:12:03.606290" elapsed="0.000363"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.269534" level="INFO">✔ Config loaded | ENV: dev | URL: https://opensource-demo.orangehrmlive.com/web/index.php/auth/login</msg>
+<msg time="2026-04-07T01:12:03.607119" level="INFO">✔ Config loaded | ENV: dev | URL: https://opensource-demo.orangehrmlive.com/web/index.php/auth/login</msg>
 <arg>✔ Config loaded | ENV: ${config}[environment] | URL: ${BASE_URL}</arg>
 <arg>level=INFO</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.269207" elapsed="0.000379"/>
+<status status="PASS" start="2026-04-07T01:12:03.606773" elapsed="0.000515"/>
 </kw>
 <doc>Reads the active YAML config and sets all suite variables.
 Call this in Suite Setup before opening the browser.
 Override config file via: --variable CONFIG_FILE:config/staging.yaml</doc>
-<status status="PASS" start="2026-04-06T10:30:34.261693" elapsed="0.007972"/>
+<status status="PASS" start="2026-04-07T01:12:03.577135" elapsed="0.030265"/>
 </kw>
 <kw name="Open My Browser" owner="browser_setup">
 <kw name="Get Chrome Options" owner="browser_setup">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.274091" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002198C69BE00&gt;</msg>
+<msg time="2026-04-07T01:12:03.613793" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000017564E8C1A0&gt;</msg>
 <var>${options}</var>
 <arg>selenium.webdriver.ChromeOptions()</arg>
 <arg>modules=selenium</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.270496" elapsed="0.003636"/>
+<status status="PASS" start="2026-04-07T01:12:03.608334" elapsed="0.005523"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
 <arg>$options.add_argument('--no-sandbox')</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.274275" elapsed="0.000357"/>
+<status status="PASS" start="2026-04-07T01:12:03.614107" elapsed="0.000611"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
 <arg>$options.add_argument('--disable-dev-shm-usage')</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.274766" elapsed="0.000319"/>
+<status status="PASS" start="2026-04-07T01:12:03.614922" elapsed="0.000513"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
 <arg>$options.add_argument('--window-size=1920,1080')</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.275213" elapsed="0.000302"/>
+<status status="PASS" start="2026-04-07T01:12:03.615634" elapsed="0.000481"/>
+</kw>
+<kw name="Convert To Boolean" owner="BuiltIn">
+<msg time="2026-04-07T01:12:03.616765" level="INFO">${headless} = False</msg>
+<var>${headless}</var>
+<arg>${headless}</arg>
+<doc>Converts the given item to Boolean ``True`` or ``False``.</doc>
+<status status="PASS" start="2026-04-07T01:12:03.616313" elapsed="0.000499"/>
 </kw>
 <if>
 <branch type="IF" condition="${headless}">
 <kw name="Evaluate" owner="BuiltIn">
 <arg>$options.add_argument('--headless=new')</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="NOT RUN" start="2026-04-06T10:30:34.275935" elapsed="0.000037"/>
+<status status="NOT RUN" start="2026-04-07T01:12:03.617478" elapsed="0.000119"/>
 </kw>
-<status status="NOT RUN" start="2026-04-06T10:30:34.275682" elapsed="0.000342"/>
+<status status="NOT RUN" start="2026-04-07T01:12:03.616976" elapsed="0.000705"/>
 </branch>
-<status status="PASS" start="2026-04-06T10:30:34.275599" elapsed="0.000481"/>
+<status status="PASS" start="2026-04-07T01:12:03.616931" elapsed="0.000833"/>
 </if>
 <return>
 <value>${options}</value>
-<status status="PASS" start="2026-04-06T10:30:34.276132" elapsed="0.000061"/>
+<status status="PASS" start="2026-04-07T01:12:03.617837" elapsed="0.000089"/>
 </return>
-<msg time="2026-04-06T10:30:34.276368" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002198C69BE00&gt;</msg>
+<msg time="2026-04-07T01:12:03.618177" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000017564E8C1A0&gt;</msg>
 <var>${options}</var>
 <arg>${headless}</arg>
 <doc>Builds ChromeOptions with stability flags and optional headless mode.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.270255" elapsed="0.006148"/>
+<status status="PASS" start="2026-04-07T01:12:03.608048" elapsed="0.010177"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:30:34.276856" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<msg time="2026-04-07T01:12:03.618861" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
 <arg>${url}</arg>
 <arg>${browser}</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.276568" elapsed="2.537457"/>
+<status status="PASS" start="2026-04-07T01:12:03.618462" elapsed="4.150044"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-04-06T10:30:36.814574" elapsed="0.041917"/>
+<status status="PASS" start="2026-04-07T01:12:07.768773" elapsed="0.038602"/>
 </kw>
 <kw name="Set Browser Implicit Wait" owner="SeleniumLibrary">
 <arg>${IMPLICIT_WAIT}</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" start="2026-04-06T10:30:36.856722" elapsed="0.001284"/>
+<status status="PASS" start="2026-04-07T01:12:07.807646" elapsed="0.001461"/>
 </kw>
 <doc>Opens Chrome and navigates to the given URL.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.269831" elapsed="2.588279"/>
+<status status="PASS" start="2026-04-07T01:12:03.607610" elapsed="4.201673"/>
 </kw>
 <doc>Loads environment config then opens the browser.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.260961" elapsed="2.597216"/>
+<status status="PASS" start="2026-04-07T01:12:03.576686" elapsed="4.232687"/>
 </kw>
-<test id="s1-s1-t1" name="TC-LOGIN-001 Login Page Should Load Correctly" line="21">
+<test id="s1-t1" name="TC-LOGIN-001 Login Page Should Load Correctly" line="21">
 <kw name="Navigate To Login Page" type="SETUP">
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Logout" owner="dashboard_page">
@@ -165,51 +164,51 @@ Override config file via: --variable CONFIG_FILE:config/staging.yaml</doc>
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:30:36.860168" elapsed="0.000349"/>
+<status status="PASS" start="2026-04-07T01:12:07.811939" elapsed="0.000457"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:30:57.447977" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="20260406_103030-0-selenium-screenshot-1.png"&gt;&lt;img src="20260406_103030-0-selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-04-06T10:30:57.448381" level="FAIL">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</msg>
+<msg time="2026-04-07T01:12:28.458934" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-54.png"&gt;&lt;img src="selenium-screenshot-54.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-04-07T01:12:28.459520" level="FAIL">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</msg>
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2026-04-06T10:30:36.860660" elapsed="20.592765">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:12:07.812630" elapsed="20.721537">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-04-06T10:30:57.453707" elapsed="0.000044"/>
+<status status="NOT RUN" start="2026-04-07T01:12:28.534868" elapsed="0.000123"/>
 </kw>
 <arg>${USER_MENU}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="FAIL" start="2026-04-06T10:30:36.859902" elapsed="20.593999">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:12:07.811602" elapsed="20.723819">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <kw name="Click On Element" owner="common_keywords">
 <arg>${LOGOUT_OPTION}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="NOT RUN" start="2026-04-06T10:30:57.454116" elapsed="0.000035"/>
+<status status="NOT RUN" start="2026-04-07T01:12:28.535941" elapsed="0.000086"/>
 </kw>
 <doc>Clicks the user menu then the Logout option.</doc>
-<status status="FAIL" start="2026-04-06T10:30:36.859633" elapsed="20.594616">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:12:07.811268" elapsed="20.725015">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <arg>Logout</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2026-04-06T10:30:36.859228" elapsed="20.595110"/>
+<status status="PASS" start="2026-04-07T01:12:07.810799" elapsed="20.725686"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:30:57.454650" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
+<msg time="2026-04-07T01:12:28.537233" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
 <arg>${BASE_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-04-06T10:30:57.454464" elapsed="0.356147"/>
+<status status="PASS" start="2026-04-07T01:12:28.536835" elapsed="0.402038"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//input[@name="username"]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:30:57.810956" elapsed="0.251384"/>
+<status status="PASS" start="2026-04-07T01:12:28.939138" elapsed="0.639606"/>
 </kw>
 <doc>Resets browser to the login URL before each test.</doc>
-<status status="PASS" start="2026-04-06T10:30:36.858931" elapsed="21.203549"/>
+<status status="PASS" start="2026-04-07T01:12:07.810403" elapsed="21.768538"/>
 </kw>
 <kw name="Verify Login Page Is Loaded" owner="login_page">
 <kw name="Element Should Be Visible On Page" owner="common_keywords">
@@ -218,11 +217,11 @@ Override config file via: --variable CONFIG_FILE:config/staging.yaml</doc>
 <arg>timeout=15 sec</arg>
 <arg>error=Element not found: ${locator}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:30:58.063334" elapsed="0.016643"/>
+<status status="PASS" start="2026-04-07T01:12:29.580357" elapsed="0.034376"/>
 </kw>
 <arg>${LOGIN_LOGO}</arg>
 <doc>Waits up to 15 seconds for element to appear, then asserts it.</doc>
-<status status="PASS" start="2026-04-06T10:30:58.063051" elapsed="0.017050"/>
+<status status="PASS" start="2026-04-07T01:12:29.579922" elapsed="0.034950"/>
 </kw>
 <kw name="Element Should Be Visible On Page" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
@@ -230,11 +229,11 @@ Override config file via: --variable CONFIG_FILE:config/staging.yaml</doc>
 <arg>timeout=15 sec</arg>
 <arg>error=Element not found: ${locator}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:30:58.080635" elapsed="0.015914"/>
+<status status="PASS" start="2026-04-07T01:12:29.615544" elapsed="0.020557"/>
 </kw>
 <arg>${USERNAME_INPUT}</arg>
 <doc>Waits up to 15 seconds for element to appear, then asserts it.</doc>
-<status status="PASS" start="2026-04-06T10:30:58.080302" elapsed="0.016367"/>
+<status status="PASS" start="2026-04-07T01:12:29.615097" elapsed="0.021135"/>
 </kw>
 <kw name="Element Should Be Visible On Page" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
@@ -242,24 +241,24 @@ Override config file via: --variable CONFIG_FILE:config/staging.yaml</doc>
 <arg>timeout=15 sec</arg>
 <arg>error=Element not found: ${locator}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:30:58.097188" elapsed="0.017068"/>
+<status status="PASS" start="2026-04-07T01:12:29.636797" elapsed="0.024802"/>
 </kw>
 <arg>${LOGIN_BUTTON}</arg>
 <doc>Waits up to 15 seconds for element to appear, then asserts it.</doc>
-<status status="PASS" start="2026-04-06T10:30:58.096865" elapsed="0.017511"/>
+<status status="PASS" start="2026-04-07T01:12:29.636444" elapsed="0.025352"/>
 </kw>
 <doc>Confirms the login page is fully rendered.</doc>
-<status status="PASS" start="2026-04-06T10:30:58.062729" elapsed="0.051712"/>
+<status status="PASS" start="2026-04-07T01:12:29.579483" elapsed="0.082426"/>
 </kw>
 <kw name="Handle Test Teardown" owner="browser_setup" type="TEARDOWN">
 <kw name="Run Keyword If Test Failed" owner="BuiltIn">
 <arg>Take Screenshot On Failure</arg>
 <doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2026-04-06T10:30:58.115021" elapsed="0.000314"/>
+<status status="PASS" start="2026-04-07T01:12:29.663210" elapsed="0.000735"/>
 </kw>
 <doc>Runs after EVERY test. Takes screenshot only on failure.
 Add this as Test Teardown in your test suite Settings.</doc>
-<status status="PASS" start="2026-04-06T10:30:58.114725" elapsed="0.000688"/>
+<status status="PASS" start="2026-04-07T01:12:29.662662" elapsed="0.001521"/>
 </kw>
 <doc>Verifies all key elements visible on login page.</doc>
 <tag>critical</tag>
@@ -267,9 +266,9 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <tag>regression</tag>
 <tag>smoke</tag>
 <tag>ui</tag>
-<status status="PASS" start="2026-04-06T10:30:36.858268" elapsed="21.257204"/>
+<status status="PASS" start="2026-04-07T01:12:07.809490" elapsed="21.854995"/>
 </test>
-<test id="s1-s1-t2" name="TC-LOGIN-002 Valid Login Should Reach Dashboard" line="26">
+<test id="s1-t2" name="TC-LOGIN-002 Valid Login Should Reach Dashboard" line="26">
 <kw name="Navigate To Login Page" type="SETUP">
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Logout" owner="dashboard_page">
@@ -278,51 +277,51 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:30:58.117509" elapsed="0.000351"/>
+<status status="PASS" start="2026-04-07T01:12:29.669635" elapsed="0.000659"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:18.674089" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="20260406_103030-0-selenium-screenshot-2.png"&gt;&lt;img src="20260406_103030-0-selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-04-06T10:31:18.674421" level="FAIL">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</msg>
+<msg time="2026-04-07T01:12:50.262861" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-55.png"&gt;&lt;img src="selenium-screenshot-55.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-04-07T01:12:50.263162" level="FAIL">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</msg>
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2026-04-06T10:30:58.118003" elapsed="20.558227">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:12:29.670562" elapsed="20.594114">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-04-06T10:31:18.676638" elapsed="0.000071"/>
+<status status="NOT RUN" start="2026-04-07T01:12:50.264966" elapsed="0.000043"/>
 </kw>
 <arg>${USER_MENU}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="FAIL" start="2026-04-06T10:30:58.117250" elapsed="20.559675">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:12:29.669111" elapsed="20.596022">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <kw name="Click On Element" owner="common_keywords">
 <arg>${LOGOUT_OPTION}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="NOT RUN" start="2026-04-06T10:31:18.677255" elapsed="0.000102"/>
+<status status="NOT RUN" start="2026-04-07T01:12:50.265349" elapsed="0.000035"/>
 </kw>
 <doc>Clicks the user menu then the Logout option.</doc>
-<status status="FAIL" start="2026-04-06T10:30:58.117000" elapsed="20.560518">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:12:29.668617" elapsed="20.596894">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <arg>Logout</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2026-04-06T10:30:58.116640" elapsed="20.561018"/>
+<status status="PASS" start="2026-04-07T01:12:29.667661" elapsed="20.597948"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:18.678113" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
+<msg time="2026-04-07T01:12:50.265913" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
 <arg>${BASE_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-04-06T10:31:18.677858" elapsed="0.293469"/>
+<status status="PASS" start="2026-04-07T01:12:50.265739" elapsed="0.629078"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//input[@name="username"]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:18.971580" elapsed="0.263250"/>
+<status status="PASS" start="2026-04-07T01:12:50.895173" elapsed="0.289647"/>
 </kw>
 <doc>Resets browser to the login URL before each test.</doc>
-<status status="PASS" start="2026-04-06T10:30:58.116350" elapsed="21.118621"/>
+<status status="PASS" start="2026-04-07T01:12:29.666745" elapsed="21.518211"/>
 </kw>
 <kw name="Login With Credentials" owner="login_page">
 <kw name="Enter Username" owner="login_page">
@@ -331,34 +330,34 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Typing '${value}' into: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.236243" elapsed="0.000443"/>
+<status status="PASS" start="2026-04-07T01:12:51.186959" elapsed="0.000450"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.236840" elapsed="0.014830"/>
+<status status="PASS" start="2026-04-07T01:12:51.187571" elapsed="0.014391"/>
 </kw>
 <kw name="Clear Element Text" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.251864" elapsed="0.049021"/>
+<status status="PASS" start="2026-04-07T01:12:51.202184" elapsed="0.039664"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:19.301395" level="INFO">Typing text 'Admin' into text field 'xpath=//input[@name='username']'.</msg>
+<msg time="2026-04-07T01:12:51.242378" level="INFO">Typing text 'Admin' into text field 'xpath=//input[@name='username']'.</msg>
 <arg>${locator}</arg>
 <arg>${value}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.301108" elapsed="0.080803"/>
+<status status="PASS" start="2026-04-07T01:12:51.242078" elapsed="0.090344"/>
 </kw>
 <arg>${USERNAME_INPUT}</arg>
 <arg>${username}</arg>
 <doc>Clears a field and types the given value.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.235942" elapsed="0.146154"/>
+<status status="PASS" start="2026-04-07T01:12:51.186651" elapsed="0.145908"/>
 </kw>
 <arg>${username}</arg>
 <doc>Types the given text into the username field.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.235652" elapsed="0.146561"/>
+<status status="PASS" start="2026-04-07T01:12:51.186315" elapsed="0.146318"/>
 </kw>
 <kw name="Enter Password" owner="login_page">
 <kw name="Enter Text Into Field" owner="common_keywords">
@@ -366,34 +365,34 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Typing '${value}' into: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.383502" elapsed="0.000604"/>
+<status status="PASS" start="2026-04-07T01:12:51.333532" elapsed="0.000415"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.384330" elapsed="0.016814"/>
+<status status="PASS" start="2026-04-07T01:12:51.334091" elapsed="0.018371"/>
 </kw>
 <kw name="Clear Element Text" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.401364" elapsed="0.033336"/>
+<status status="PASS" start="2026-04-07T01:12:51.352676" elapsed="0.029863"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:19.435399" level="INFO">Typing text 'admin123' into text field 'xpath=//input[@name='password']'.</msg>
+<msg time="2026-04-07T01:12:51.383019" level="INFO">Typing text 'admin123' into text field 'xpath=//input[@name='password']'.</msg>
 <arg>${locator}</arg>
 <arg>${value}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.435001" elapsed="0.076778"/>
+<status status="PASS" start="2026-04-07T01:12:51.382744" elapsed="0.084096"/>
 </kw>
 <arg>${PASSWORD_INPUT}</arg>
 <arg>${password}</arg>
 <doc>Clears a field and types the given value.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.383039" elapsed="0.128875"/>
+<status status="PASS" start="2026-04-07T01:12:51.333228" elapsed="0.133747"/>
 </kw>
 <arg>${password}</arg>
 <doc>Types the given text into the password field.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.382505" elapsed="0.129480"/>
+<status status="PASS" start="2026-04-07T01:12:51.332848" elapsed="0.134195"/>
 </kw>
 <kw name="Click Login Button" owner="login_page">
 <kw name="Click On Element" owner="common_keywords">
@@ -401,67 +400,78 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.512778" elapsed="0.000392"/>
+<status status="PASS" start="2026-04-07T01:12:51.467847" elapsed="0.000386"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.513320" elapsed="0.014433"/>
+<status status="PASS" start="2026-04-07T01:12:51.468377" elapsed="0.013454"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:19.528205" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<msg time="2026-04-07T01:12:51.482274" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.527954" elapsed="0.062571"/>
+<status status="PASS" start="2026-04-07T01:12:51.482032" elapsed="0.071390"/>
 </kw>
 <arg>${LOGIN_BUTTON}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.512500" elapsed="0.078228"/>
+<status status="PASS" start="2026-04-07T01:12:51.467560" elapsed="0.085994"/>
 </kw>
 <doc>Clicks the Login submit button.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.512188" elapsed="0.078633"/>
+<status status="PASS" start="2026-04-07T01:12:51.467250" elapsed="0.086371"/>
 </kw>
 <arg>${ADMIN_USERNAME}</arg>
 <arg>${ADMIN_PASSWORD}</arg>
 <doc>Performs a full login with the given username and password.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.235231" elapsed="0.355682"/>
+<status status="PASS" start="2026-04-07T01:12:51.185463" elapsed="0.368217"/>
 </kw>
 <kw name="Verify Dashboard Is Loaded" owner="dashboard_page">
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/dashboard</arg>
+<arg>10s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-04-07T01:12:51.554643" elapsed="2.148580"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Dashboard</arg>
+<arg>10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-04-07T01:12:53.703514" elapsed="1.148510"/>
+</kw>
 <kw name="Element Should Be Visible On Page" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <arg>error=Element not found: ${locator}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.592260" elapsed="1.901908"/>
+<status status="PASS" start="2026-04-07T01:12:54.854540" elapsed="0.020166"/>
 </kw>
 <arg>${DASHBOARD_HEADER}</arg>
 <doc>Waits up to 15 seconds for element to appear, then asserts it.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.591853" elapsed="1.902461"/>
+<status status="PASS" start="2026-04-07T01:12:54.852971" elapsed="0.021862"/>
 </kw>
 <doc>Asserts the Dashboard heading is visible after login.</doc>
-<status status="PASS" start="2026-04-06T10:31:19.591315" elapsed="1.903065"/>
+<status status="PASS" start="2026-04-07T01:12:51.554236" elapsed="3.320661"/>
 </kw>
 <kw name="Handle Test Teardown" owner="browser_setup" type="TEARDOWN">
 <kw name="Run Keyword If Test Failed" owner="BuiltIn">
 <arg>Take Screenshot On Failure</arg>
 <doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2026-04-06T10:31:21.495140" elapsed="0.000306"/>
+<status status="PASS" start="2026-04-07T01:12:54.875737" elapsed="0.000278"/>
 </kw>
 <doc>Runs after EVERY test. Takes screenshot only on failure.
 Add this as Test Teardown in your test suite Settings.</doc>
-<status status="PASS" start="2026-04-06T10:31:21.494790" elapsed="0.000739"/>
+<status status="PASS" start="2026-04-07T01:12:54.875397" elapsed="0.000696"/>
 </kw>
 <doc>Logs in with valid credentials — confirms dashboard loads.</doc>
-<tag>critical</tag>
 <tag>login</tag>
 <tag>regression</tag>
-<tag>smoke</tag>
+<tag>run_this</tag>
 <tag>ui</tag>
-<status status="PASS" start="2026-04-06T10:30:58.115817" elapsed="23.379776"/>
+<status status="PASS" start="2026-04-07T01:12:29.665419" elapsed="25.210845"/>
 </test>
-<test id="s1-s1-t3" name="TC-LOGIN-003 Dashboard Should Show Logged In Username" line="32">
+<test id="s1-t3" name="TC-LOGIN-003 Dashboard Should Show Logged In Username" line="33">
 <kw name="Navigate To Login Page" type="SETUP">
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Logout" owner="dashboard_page">
@@ -470,68 +480,68 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:21.497615" elapsed="0.000344"/>
+<status status="PASS" start="2026-04-07T01:12:54.878897" elapsed="0.000599"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:21.498130" elapsed="0.013813"/>
+<status status="PASS" start="2026-04-07T01:12:54.879792" elapsed="0.014943"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:21.512401" level="INFO">Clicking element 'xpath=//li[contains(@class,'oxd-userdropdown')]'.</msg>
+<msg time="2026-04-07T01:12:54.895185" level="INFO">Clicking element 'xpath=//li[contains(@class,'oxd-userdropdown')]'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:21.512154" elapsed="0.064691"/>
+<status status="PASS" start="2026-04-07T01:12:54.894940" elapsed="0.064727"/>
 </kw>
 <arg>${USER_MENU}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="PASS" start="2026-04-06T10:31:21.497363" elapsed="0.079648"/>
+<status status="PASS" start="2026-04-07T01:12:54.878584" elapsed="0.081244"/>
 </kw>
 <kw name="Click On Element" owner="common_keywords">
 <kw name="Log" owner="BuiltIn">
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:21.577775" elapsed="0.000553"/>
+<status status="PASS" start="2026-04-07T01:12:54.960583" elapsed="0.000541"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:21.578538" elapsed="0.249322"/>
+<status status="PASS" start="2026-04-07T01:12:54.961329" elapsed="0.237627"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:21.828447" level="INFO">Clicking element 'xpath=//a[normalize-space()='Logout']'.</msg>
+<msg time="2026-04-07T01:12:55.199549" level="INFO">Clicking element 'xpath=//a[normalize-space()='Logout']'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:21.828131" elapsed="0.910733"/>
+<status status="PASS" start="2026-04-07T01:12:55.199232" elapsed="1.873320"/>
 </kw>
 <arg>${LOGOUT_OPTION}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="PASS" start="2026-04-06T10:31:21.577315" elapsed="1.161706"/>
+<status status="PASS" start="2026-04-07T01:12:54.960119" elapsed="2.112567"/>
 </kw>
 <doc>Clicks the user menu then the Logout option.</doc>
-<status status="PASS" start="2026-04-06T10:31:21.497116" elapsed="1.242004"/>
+<status status="PASS" start="2026-04-07T01:12:54.878239" elapsed="2.194514"/>
 </kw>
 <arg>Logout</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2026-04-06T10:31:21.496776" elapsed="1.242417"/>
+<status status="PASS" start="2026-04-07T01:12:54.877810" elapsed="2.195003"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:22.739632" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
+<msg time="2026-04-07T01:12:57.073181" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
 <arg>${BASE_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-04-06T10:31:22.739399" elapsed="0.702654"/>
+<status status="PASS" start="2026-04-07T01:12:57.072986" elapsed="0.677340"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//input[@name="username"]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:23.442292" elapsed="0.459304"/>
+<status status="PASS" start="2026-04-07T01:12:57.750560" elapsed="0.280990"/>
 </kw>
 <doc>Resets browser to the login URL before each test.</doc>
-<status status="PASS" start="2026-04-06T10:31:21.496512" elapsed="2.405233"/>
+<status status="PASS" start="2026-04-07T01:12:54.877465" elapsed="3.154219"/>
 </kw>
 <kw name="Login With Credentials" owner="login_page">
 <kw name="Enter Username" owner="login_page">
@@ -540,34 +550,34 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Typing '${value}' into: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:23.903028" elapsed="0.000479"/>
+<status status="PASS" start="2026-04-07T01:12:58.033038" elapsed="0.000554"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:23.903696" elapsed="0.013847"/>
+<status status="PASS" start="2026-04-07T01:12:58.033781" elapsed="0.013512"/>
 </kw>
 <kw name="Clear Element Text" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:23.917792" elapsed="0.035327"/>
+<status status="PASS" start="2026-04-07T01:12:58.047512" elapsed="0.030434"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:23.953676" level="INFO">Typing text 'Admin' into text field 'xpath=//input[@name='username']'.</msg>
+<msg time="2026-04-07T01:12:58.078505" level="INFO">Typing text 'Admin' into text field 'xpath=//input[@name='username']'.</msg>
 <arg>${locator}</arg>
 <arg>${value}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:23.953360" elapsed="0.078702"/>
+<status status="PASS" start="2026-04-07T01:12:58.078188" elapsed="0.122747"/>
 </kw>
 <arg>${USERNAME_INPUT}</arg>
 <arg>${username}</arg>
 <doc>Clears a field and types the given value.</doc>
-<status status="PASS" start="2026-04-06T10:31:23.902716" elapsed="0.129481"/>
+<status status="PASS" start="2026-04-07T01:12:58.032751" elapsed="0.168378"/>
 </kw>
 <arg>${username}</arg>
 <doc>Types the given text into the username field.</doc>
-<status status="PASS" start="2026-04-06T10:31:23.902448" elapsed="0.129818"/>
+<status status="PASS" start="2026-04-07T01:12:58.032477" elapsed="0.168762"/>
 </kw>
 <kw name="Enter Password" owner="login_page">
 <kw name="Enter Text Into Field" owner="common_keywords">
@@ -575,34 +585,34 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Typing '${value}' into: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:24.033134" elapsed="0.000418"/>
+<status status="PASS" start="2026-04-07T01:12:58.202588" elapsed="0.000614"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:24.033703" elapsed="0.013325"/>
+<status status="PASS" start="2026-04-07T01:12:58.203431" elapsed="0.018099"/>
 </kw>
 <kw name="Clear Element Text" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:24.047231" elapsed="0.028119"/>
+<status status="PASS" start="2026-04-07T01:12:58.221770" elapsed="0.031917"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:24.075840" level="INFO">Typing text 'admin123' into text field 'xpath=//input[@name='password']'.</msg>
+<msg time="2026-04-07T01:12:58.254236" level="INFO">Typing text 'admin123' into text field 'xpath=//input[@name='password']'.</msg>
 <arg>${locator}</arg>
 <arg>${value}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:24.075560" elapsed="0.077907"/>
+<status status="PASS" start="2026-04-07T01:12:58.253913" elapsed="0.118794"/>
 </kw>
 <arg>${PASSWORD_INPUT}</arg>
 <arg>${password}</arg>
 <doc>Clears a field and types the given value.</doc>
-<status status="PASS" start="2026-04-06T10:31:24.032846" elapsed="0.120763"/>
+<status status="PASS" start="2026-04-07T01:12:58.202098" elapsed="0.170750"/>
 </kw>
 <arg>${password}</arg>
 <doc>Types the given text into the password field.</doc>
-<status status="PASS" start="2026-04-06T10:31:24.032480" elapsed="0.121196"/>
+<status status="PASS" start="2026-04-07T01:12:58.201542" elapsed="0.171383"/>
 </kw>
 <kw name="Click Login Button" owner="login_page">
 <kw name="Click On Element" owner="common_keywords">
@@ -610,79 +620,79 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:24.154481" elapsed="0.000391"/>
+<status status="PASS" start="2026-04-07T01:12:58.373908" elapsed="0.000408"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:24.155011" elapsed="0.012922"/>
+<status status="PASS" start="2026-04-07T01:12:58.374478" elapsed="0.015939"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:24.168346" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<msg time="2026-04-07T01:12:58.390907" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:24.168117" elapsed="0.082124"/>
+<status status="PASS" start="2026-04-07T01:12:58.390638" elapsed="0.073969"/>
 </kw>
 <arg>${LOGIN_BUTTON}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="PASS" start="2026-04-06T10:31:24.154194" elapsed="0.096202"/>
+<status status="PASS" start="2026-04-07T01:12:58.373582" elapsed="0.091159"/>
 </kw>
 <doc>Clicks the Login submit button.</doc>
-<status status="PASS" start="2026-04-06T10:31:24.153888" elapsed="0.096594"/>
+<status status="PASS" start="2026-04-07T01:12:58.373140" elapsed="0.091669"/>
 </kw>
 <arg>${ADMIN_USERNAME}</arg>
 <arg>${ADMIN_PASSWORD}</arg>
 <doc>Performs a full login with the given username and password.</doc>
-<status status="PASS" start="2026-04-06T10:31:23.902014" elapsed="0.348539"/>
+<status status="PASS" start="2026-04-07T01:12:58.032076" elapsed="0.432790"/>
 </kw>
 <kw name="Get Logged In User Name" owner="dashboard_page">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${USER_DISPLAY_NAME}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:24.251622" elapsed="1.172858"/>
+<status status="PASS" start="2026-04-07T01:12:58.465894" elapsed="2.537718"/>
 </kw>
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:25.444429" level="INFO">${name} = Amelia Brownsdsds</msg>
+<msg time="2026-04-07T01:13:01.028188" level="INFO">${name} = Littleakash Bugxmmsxm</msg>
 <var>${name}</var>
 <arg>${USER_DISPLAY_NAME}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:25.424723" elapsed="0.019759"/>
+<status status="PASS" start="2026-04-07T01:13:01.003854" elapsed="0.024390"/>
 </kw>
 <return>
 <value>${name}</value>
-<status status="PASS" start="2026-04-06T10:31:25.444585" elapsed="0.000080"/>
+<status status="PASS" start="2026-04-07T01:13:01.028351" elapsed="0.000083"/>
 </return>
-<msg time="2026-04-06T10:31:25.444831" level="INFO">${name} = Amelia Brownsdsds</msg>
+<msg time="2026-04-07T01:13:01.028608" level="INFO">${name} = Littleakash Bugxmmsxm</msg>
 <var>${name}</var>
 <doc>Returns the display name from the top navigation bar.</doc>
-<status status="PASS" start="2026-04-06T10:31:24.251019" elapsed="1.193840"/>
+<status status="PASS" start="2026-04-07T01:12:58.465440" elapsed="2.563197"/>
 </kw>
 <kw name="Should Not Be Empty" owner="BuiltIn">
-<msg time="2026-04-06T10:31:25.445637" level="INFO">Length is 17.</msg>
+<msg time="2026-04-07T01:13:01.029568" level="INFO">Length is 21.</msg>
 <arg>${name}</arg>
 <arg>msg=Username not displayed — session may have failed.</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<status status="PASS" start="2026-04-06T10:31:25.445025" elapsed="0.000673"/>
+<status status="PASS" start="2026-04-07T01:13:01.028958" elapsed="0.000672"/>
 </kw>
 <kw name="Handle Test Teardown" owner="browser_setup" type="TEARDOWN">
 <kw name="Run Keyword If Test Failed" owner="BuiltIn">
 <arg>Take Screenshot On Failure</arg>
 <doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2026-04-06T10:31:25.446234" elapsed="0.000220"/>
+<status status="PASS" start="2026-04-07T01:13:01.030275" elapsed="0.000233"/>
 </kw>
 <doc>Runs after EVERY test. Takes screenshot only on failure.
 Add this as Test Teardown in your test suite Settings.</doc>
-<status status="PASS" start="2026-04-06T10:31:25.445963" elapsed="0.000559"/>
+<status status="PASS" start="2026-04-07T01:13:01.029991" elapsed="0.000590"/>
 </kw>
 <doc>Confirms the username appears in the nav bar after login.</doc>
 <tag>login</tag>
 <tag>regression</tag>
 <tag>ui</tag>
-<status status="PASS" start="2026-04-06T10:31:21.496007" elapsed="3.950564"/>
+<status status="PASS" start="2026-04-07T01:12:54.876821" elapsed="6.153897"/>
 </test>
-<test id="s1-s1-t4" name="TC-LOGIN-004 Logout Should Return To Login Page" line="39">
+<test id="s1-t4" name="TC-LOGIN-004 Logout Should Return To Login Page" line="40">
 <kw name="Navigate To Login Page" type="SETUP">
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Logout" owner="dashboard_page">
@@ -691,68 +701,68 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:25.448602" elapsed="0.000377"/>
+<status status="PASS" start="2026-04-07T01:13:01.034129" elapsed="0.000495"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:25.449119" elapsed="0.015627"/>
+<status status="PASS" start="2026-04-07T01:13:01.034827" elapsed="0.016346"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:25.465113" level="INFO">Clicking element 'xpath=//li[contains(@class,'oxd-userdropdown')]'.</msg>
+<msg time="2026-04-07T01:13:01.051701" level="INFO">Clicking element 'xpath=//li[contains(@class,'oxd-userdropdown')]'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:25.464913" elapsed="0.069560"/>
+<status status="PASS" start="2026-04-07T01:13:01.051415" elapsed="0.063224"/>
 </kw>
 <arg>${USER_MENU}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="PASS" start="2026-04-06T10:31:25.448312" elapsed="0.086298"/>
+<status status="PASS" start="2026-04-07T01:13:01.033713" elapsed="0.081183"/>
 </kw>
 <kw name="Click On Element" owner="common_keywords">
 <kw name="Log" owner="BuiltIn">
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:25.535190" elapsed="0.000400"/>
+<status status="PASS" start="2026-04-07T01:13:01.115578" elapsed="0.000438"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:25.535740" elapsed="0.249131"/>
+<status status="PASS" start="2026-04-07T01:13:01.116182" elapsed="0.243069"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:25.785446" level="INFO">Clicking element 'xpath=//a[normalize-space()='Logout']'.</msg>
+<msg time="2026-04-07T01:13:01.359763" level="INFO">Clicking element 'xpath=//a[normalize-space()='Logout']'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:25.785138" elapsed="0.683059"/>
+<status status="PASS" start="2026-04-07T01:13:01.359489" elapsed="2.320340"/>
 </kw>
 <arg>${LOGOUT_OPTION}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="PASS" start="2026-04-06T10:31:25.534837" elapsed="0.933492"/>
+<status status="PASS" start="2026-04-07T01:13:01.115219" elapsed="2.564755"/>
 </kw>
 <doc>Clicks the user menu then the Logout option.</doc>
-<status status="PASS" start="2026-04-06T10:31:25.448026" elapsed="1.020367"/>
+<status status="PASS" start="2026-04-07T01:13:01.033048" elapsed="2.647001"/>
 </kw>
 <arg>Logout</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2026-04-06T10:31:25.447659" elapsed="1.020790"/>
+<status status="PASS" start="2026-04-07T01:13:01.032587" elapsed="2.647524"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:26.468941" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
+<msg time="2026-04-07T01:13:03.680503" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
 <arg>${BASE_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-04-06T10:31:26.468695" elapsed="0.684023"/>
+<status status="PASS" start="2026-04-07T01:13:03.680303" elapsed="0.481056"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//input[@name="username"]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.152958" elapsed="0.274094"/>
+<status status="PASS" start="2026-04-07T01:13:04.162582" elapsed="0.325980"/>
 </kw>
 <doc>Resets browser to the login URL before each test.</doc>
-<status status="PASS" start="2026-04-06T10:31:25.447360" elapsed="1.979827"/>
+<status status="PASS" start="2026-04-07T01:13:01.032228" elapsed="3.456471"/>
 </kw>
 <kw name="Login With Credentials" owner="login_page">
 <kw name="Enter Username" owner="login_page">
@@ -761,34 +771,34 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Typing '${value}' into: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.428384" elapsed="0.000412"/>
+<status status="PASS" start="2026-04-07T01:13:04.490403" elapsed="0.000513"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.428951" elapsed="0.012985"/>
+<status status="PASS" start="2026-04-07T01:13:04.491112" elapsed="0.013957"/>
 </kw>
 <kw name="Clear Element Text" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.442143" elapsed="0.029368"/>
+<status status="PASS" start="2026-04-07T01:13:04.505269" elapsed="0.030187"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:27.472002" level="INFO">Typing text 'Admin' into text field 'xpath=//input[@name='username']'.</msg>
+<msg time="2026-04-07T01:13:04.536020" level="INFO">Typing text 'Admin' into text field 'xpath=//input[@name='username']'.</msg>
 <arg>${locator}</arg>
 <arg>${value}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.471719" elapsed="0.068613"/>
+<status status="PASS" start="2026-04-07T01:13:04.535680" elapsed="0.082426"/>
 </kw>
 <arg>${USERNAME_INPUT}</arg>
 <arg>${username}</arg>
 <doc>Clears a field and types the given value.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.428093" elapsed="0.112380"/>
+<status status="PASS" start="2026-04-07T01:13:04.490057" elapsed="0.128182"/>
 </kw>
 <arg>${username}</arg>
 <doc>Types the given text into the username field.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.427817" elapsed="0.112731"/>
+<status status="PASS" start="2026-04-07T01:13:04.489655" elapsed="0.128653"/>
 </kw>
 <kw name="Enter Password" owner="login_page">
 <kw name="Enter Text Into Field" owner="common_keywords">
@@ -796,34 +806,34 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Typing '${value}' into: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.542143" elapsed="0.000660"/>
+<status status="PASS" start="2026-04-07T01:13:04.619292" elapsed="0.000472"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.543034" elapsed="0.013478"/>
+<status status="PASS" start="2026-04-07T01:13:04.619946" elapsed="0.022898"/>
 </kw>
 <kw name="Clear Element Text" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.556677" elapsed="0.027727"/>
+<status status="PASS" start="2026-04-07T01:13:04.643058" elapsed="0.030952"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:27.584947" level="INFO">Typing text 'admin123' into text field 'xpath=//input[@name='password']'.</msg>
+<msg time="2026-04-07T01:13:04.674537" level="INFO">Typing text 'admin123' into text field 'xpath=//input[@name='password']'.</msg>
 <arg>${locator}</arg>
 <arg>${value}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.584641" elapsed="0.074041"/>
+<status status="PASS" start="2026-04-07T01:13:04.674242" elapsed="0.093146"/>
 </kw>
 <arg>${PASSWORD_INPUT}</arg>
 <arg>${password}</arg>
 <doc>Clears a field and types the given value.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.541439" elapsed="0.117417"/>
+<status status="PASS" start="2026-04-07T01:13:04.618956" elapsed="0.148583"/>
 </kw>
 <arg>${password}</arg>
 <doc>Types the given text into the password field.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.540778" elapsed="0.118149"/>
+<status status="PASS" start="2026-04-07T01:13:04.618513" elapsed="0.149097"/>
 </kw>
 <kw name="Click Login Button" owner="login_page">
 <kw name="Click On Element" owner="common_keywords">
@@ -831,47 +841,59 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.659728" elapsed="0.000394"/>
+<status status="PASS" start="2026-04-07T01:13:04.768422" elapsed="0.000391"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.660263" elapsed="0.012575"/>
+<status status="PASS" start="2026-04-07T01:13:04.768953" elapsed="0.013154"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:27.673297" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<msg time="2026-04-07T01:13:04.782531" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.673035" elapsed="0.059034"/>
+<status status="PASS" start="2026-04-07T01:13:04.782302" elapsed="0.064428"/>
 </kw>
 <arg>${LOGIN_BUTTON}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.659458" elapsed="0.072740"/>
+<status status="PASS" start="2026-04-07T01:13:04.768126" elapsed="0.078766"/>
 </kw>
 <doc>Clicks the Login submit button.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.659135" elapsed="0.073129"/>
+<status status="PASS" start="2026-04-07T01:13:04.767816" elapsed="0.079171"/>
 </kw>
 <arg>${ADMIN_USERNAME}</arg>
 <arg>${ADMIN_PASSWORD}</arg>
 <doc>Performs a full login with the given username and password.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.427434" elapsed="0.304884"/>
+<status status="PASS" start="2026-04-07T01:13:04.489197" elapsed="0.357866"/>
 </kw>
 <kw name="Verify Dashboard Is Loaded" owner="dashboard_page">
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/dashboard</arg>
+<arg>10s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-04-07T01:13:04.848273" elapsed="0.844701"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Dashboard</arg>
+<arg>10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-04-07T01:13:05.693340" elapsed="0.991619"/>
+</kw>
 <kw name="Element Should Be Visible On Page" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <arg>error=Element not found: ${locator}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.733089" elapsed="1.467223"/>
+<status status="PASS" start="2026-04-07T01:13:06.685673" elapsed="0.016289"/>
 </kw>
 <arg>${DASHBOARD_HEADER}</arg>
 <doc>Waits up to 15 seconds for element to appear, then asserts it.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.732816" elapsed="1.467635"/>
+<status status="PASS" start="2026-04-07T01:13:06.685257" elapsed="0.016901"/>
 </kw>
 <doc>Asserts the Dashboard heading is visible after login.</doc>
-<status status="PASS" start="2026-04-06T10:31:27.732526" elapsed="1.467990"/>
+<status status="PASS" start="2026-04-07T01:13:04.847735" elapsed="1.854537"/>
 </kw>
 <kw name="Logout" owner="dashboard_page">
 <kw name="Click On Element" owner="common_keywords">
@@ -879,49 +901,49 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:29.201302" elapsed="0.000384"/>
+<status status="PASS" start="2026-04-07T01:13:06.703581" elapsed="0.001131"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:29.201827" elapsed="0.014171"/>
+<status status="PASS" start="2026-04-07T01:13:06.704906" elapsed="0.014262"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:29.216473" level="INFO">Clicking element 'xpath=//li[contains(@class,'oxd-userdropdown')]'.</msg>
+<msg time="2026-04-07T01:13:06.719663" level="INFO">Clicking element 'xpath=//li[contains(@class,'oxd-userdropdown')]'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:29.216218" elapsed="0.060749"/>
+<status status="PASS" start="2026-04-07T01:13:06.719392" elapsed="0.060309"/>
 </kw>
 <arg>${USER_MENU}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="PASS" start="2026-04-06T10:31:29.201030" elapsed="0.076089"/>
+<status status="PASS" start="2026-04-07T01:13:06.703290" elapsed="0.076576"/>
 </kw>
 <kw name="Click On Element" owner="common_keywords">
 <kw name="Log" owner="BuiltIn">
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:29.277722" elapsed="0.000394"/>
+<status status="PASS" start="2026-04-07T01:13:06.780627" elapsed="0.000555"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:29.278256" elapsed="0.252036"/>
+<status status="PASS" start="2026-04-07T01:13:06.781385" elapsed="0.246610"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:29.531044" level="INFO">Clicking element 'xpath=//a[normalize-space()='Logout']'.</msg>
+<msg time="2026-04-07T01:13:07.028699" level="INFO">Clicking element 'xpath=//a[normalize-space()='Logout']'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:29.530723" elapsed="1.119182"/>
+<status status="PASS" start="2026-04-07T01:13:07.028317" elapsed="1.290779"/>
 </kw>
 <arg>${LOGOUT_OPTION}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="PASS" start="2026-04-06T10:31:29.277349" elapsed="1.372712"/>
+<status status="PASS" start="2026-04-07T01:13:06.780158" elapsed="1.539084"/>
 </kw>
 <doc>Clicks the user menu then the Logout option.</doc>
-<status status="PASS" start="2026-04-06T10:31:29.200723" elapsed="1.449412"/>
+<status status="PASS" start="2026-04-07T01:13:06.702954" elapsed="1.616368"/>
 </kw>
 <kw name="Verify Login Page Is Loaded" owner="login_page">
 <kw name="Element Should Be Visible On Page" owner="common_keywords">
@@ -930,11 +952,11 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>timeout=15 sec</arg>
 <arg>error=Element not found: ${locator}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:30.651185" elapsed="0.265880"/>
+<status status="PASS" start="2026-04-07T01:13:08.320425" elapsed="0.262880"/>
 </kw>
 <arg>${LOGIN_LOGO}</arg>
 <doc>Waits up to 15 seconds for element to appear, then asserts it.</doc>
-<status status="PASS" start="2026-04-06T10:31:30.650663" elapsed="0.266550"/>
+<status status="PASS" start="2026-04-07T01:13:08.320113" elapsed="0.263326"/>
 </kw>
 <kw name="Element Should Be Visible On Page" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
@@ -942,11 +964,11 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>timeout=15 sec</arg>
 <arg>error=Element not found: ${locator}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:30.917845" elapsed="0.012909"/>
+<status status="PASS" start="2026-04-07T01:13:08.584152" elapsed="0.013105"/>
 </kw>
 <arg>${USERNAME_INPUT}</arg>
 <doc>Waits up to 15 seconds for element to appear, then asserts it.</doc>
-<status status="PASS" start="2026-04-06T10:31:30.917448" elapsed="0.013426"/>
+<status status="PASS" start="2026-04-07T01:13:08.583754" elapsed="0.013631"/>
 </kw>
 <kw name="Element Should Be Visible On Page" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
@@ -954,33 +976,33 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>timeout=15 sec</arg>
 <arg>error=Element not found: ${locator}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:30.931442" elapsed="0.013477"/>
+<status status="PASS" start="2026-04-07T01:13:08.597944" elapsed="0.013117"/>
 </kw>
 <arg>${LOGIN_BUTTON}</arg>
 <doc>Waits up to 15 seconds for element to appear, then asserts it.</doc>
-<status status="PASS" start="2026-04-06T10:31:30.931069" elapsed="0.013955"/>
+<status status="PASS" start="2026-04-07T01:13:08.597594" elapsed="0.013599"/>
 </kw>
 <doc>Confirms the login page is fully rendered.</doc>
-<status status="PASS" start="2026-04-06T10:31:30.650358" elapsed="0.294730"/>
+<status status="PASS" start="2026-04-07T01:13:08.319760" elapsed="0.291500"/>
 </kw>
 <kw name="Handle Test Teardown" owner="browser_setup" type="TEARDOWN">
 <kw name="Run Keyword If Test Failed" owner="BuiltIn">
 <arg>Take Screenshot On Failure</arg>
 <doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2026-04-06T10:31:30.945601" elapsed="0.000264"/>
+<status status="PASS" start="2026-04-07T01:13:08.612120" elapsed="0.000289"/>
 </kw>
 <doc>Runs after EVERY test. Takes screenshot only on failure.
 Add this as Test Teardown in your test suite Settings.</doc>
-<status status="PASS" start="2026-04-06T10:31:30.945335" elapsed="0.000602"/>
+<status status="PASS" start="2026-04-07T01:13:08.611749" elapsed="0.000741"/>
 </kw>
 <doc>Full login → logout → confirm back to login page.</doc>
 <tag>login</tag>
 <tag>regression</tag>
 <tag>smoke</tag>
 <tag>ui</tag>
-<status status="PASS" start="2026-04-06T10:31:25.446853" elapsed="5.499134"/>
+<status status="PASS" start="2026-04-07T01:13:01.031372" elapsed="7.581312"/>
 </test>
-<test id="s1-s1-t5" name="TC-LOGIN-005 Empty Credentials Should Show Validation Error" line="47">
+<test id="s1-t5" name="TC-LOGIN-005 Empty Credentials Should Show Validation Error" line="48">
 <kw name="Navigate To Login Page" type="SETUP">
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Logout" owner="dashboard_page">
@@ -989,51 +1011,51 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:30.948161" elapsed="0.000405"/>
+<status status="PASS" start="2026-04-07T01:13:08.614870" elapsed="0.000465"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:51.514967" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="20260406_103030-0-selenium-screenshot-3.png"&gt;&lt;img src="20260406_103030-0-selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-04-06T10:31:51.515177" level="FAIL">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</msg>
+<msg time="2026-04-07T01:13:29.215239" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-56.png"&gt;&lt;img src="selenium-screenshot-56.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-04-07T01:13:29.215491" level="FAIL">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</msg>
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2026-04-06T10:31:30.948725" elapsed="20.567698">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:13:08.615501" elapsed="20.601189">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-04-06T10:31:51.516720" elapsed="0.000046"/>
+<status status="NOT RUN" start="2026-04-07T01:13:29.216953" elapsed="0.000040"/>
 </kw>
 <arg>${USER_MENU}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="FAIL" start="2026-04-06T10:31:30.947847" elapsed="20.569056">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:13:08.614541" elapsed="20.602576">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <kw name="Click On Element" owner="common_keywords">
 <arg>${LOGOUT_OPTION}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="NOT RUN" start="2026-04-06T10:31:51.517123" elapsed="0.000038"/>
+<status status="NOT RUN" start="2026-04-07T01:13:29.217317" elapsed="0.000033"/>
 </kw>
 <doc>Clicks the user menu then the Logout option.</doc>
-<status status="FAIL" start="2026-04-06T10:31:30.947412" elapsed="20.569848">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:13:08.614294" elapsed="20.603146">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <arg>Logout</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2026-04-06T10:31:30.946959" elapsed="20.570394"/>
+<status status="PASS" start="2026-04-07T01:13:08.613952" elapsed="20.603574"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:51.517670" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
+<msg time="2026-04-07T01:13:29.217807" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
 <arg>${BASE_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-04-06T10:31:51.517481" elapsed="0.305051"/>
+<status status="PASS" start="2026-04-07T01:13:29.217642" elapsed="0.364691"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//input[@name="username"]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:51.822810" elapsed="0.277054"/>
+<status status="PASS" start="2026-04-07T01:13:29.582577" elapsed="0.269959"/>
 </kw>
 <doc>Resets browser to the login URL before each test.</doc>
-<status status="PASS" start="2026-04-06T10:31:30.946720" elapsed="21.153283"/>
+<status status="PASS" start="2026-04-07T01:13:08.613685" elapsed="21.239054"/>
 </kw>
 <kw name="Click Login Button" owner="login_page">
 <kw name="Click On Element" owner="common_keywords">
@@ -1041,26 +1063,26 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:52.100850" elapsed="0.000410"/>
+<status status="PASS" start="2026-04-07T01:13:29.853884" elapsed="0.000427"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:52.101478" elapsed="0.013396"/>
+<status status="PASS" start="2026-04-07T01:13:29.854460" elapsed="0.014072"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:31:52.115318" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<msg time="2026-04-07T01:13:29.869233" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:31:52.115078" elapsed="0.054383"/>
+<status status="PASS" start="2026-04-07T01:13:29.868911" elapsed="0.069338"/>
 </kw>
 <arg>${LOGIN_BUTTON}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="PASS" start="2026-04-06T10:31:52.100566" elapsed="0.069038"/>
+<status status="PASS" start="2026-04-07T01:13:29.853575" elapsed="0.084919"/>
 </kw>
 <doc>Clicks the Login submit button.</doc>
-<status status="PASS" start="2026-04-06T10:31:52.100240" elapsed="0.069438"/>
+<status status="PASS" start="2026-04-07T01:13:29.853210" elapsed="0.085408"/>
 </kw>
 <kw name="Verify Required Field Error Is Shown" owner="login_page">
 <kw name="Element Should Be Visible On Page" owner="common_keywords">
@@ -1069,32 +1091,32 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>timeout=15 sec</arg>
 <arg>error=Element not found: ${locator}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:31:52.170542" elapsed="0.102148"/>
+<status status="PASS" start="2026-04-07T01:13:29.939565" elapsed="0.026586"/>
 </kw>
 <arg>${FIELD_REQUIRED_MSG}</arg>
 <doc>Waits up to 15 seconds for element to appear, then asserts it.</doc>
-<status status="PASS" start="2026-04-06T10:31:52.170228" elapsed="0.102867"/>
+<status status="PASS" start="2026-04-07T01:13:29.939284" elapsed="0.027004"/>
 </kw>
 <doc>Confirms the required-field validation message appears.</doc>
-<status status="PASS" start="2026-04-06T10:31:52.169900" elapsed="0.103410"/>
+<status status="PASS" start="2026-04-07T01:13:29.938978" elapsed="0.027375"/>
 </kw>
 <kw name="Handle Test Teardown" owner="browser_setup" type="TEARDOWN">
 <kw name="Run Keyword If Test Failed" owner="BuiltIn">
 <arg>Take Screenshot On Failure</arg>
 <doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2026-04-06T10:31:52.275161" elapsed="0.001005"/>
+<status status="PASS" start="2026-04-07T01:13:29.967379" elapsed="0.000357"/>
 </kw>
 <doc>Runs after EVERY test. Takes screenshot only on failure.
 Add this as Test Teardown in your test suite Settings.</doc>
-<status status="PASS" start="2026-04-06T10:31:52.274083" elapsed="0.002235"/>
+<status status="PASS" start="2026-04-07T01:13:29.966947" elapsed="0.000893"/>
 </kw>
 <doc>Submitting blank form shows required field validation.</doc>
 <tag>login</tag>
 <tag>regression</tag>
 <tag>ui</tag>
-<status status="PASS" start="2026-04-06T10:31:30.946267" elapsed="21.330152"/>
+<status status="PASS" start="2026-04-07T01:13:08.613147" elapsed="21.354897"/>
 </test>
-<test id="s1-s1-t6" name="TC-LOGIN-006 Invalid Credentials Should Show Error Alert" line="52">
+<test id="s1-t6" name="TC-LOGIN-006 Invalid Credentials Should Show Error Alert" line="53">
 <kw name="Navigate To Login Page" type="SETUP">
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Logout" owner="dashboard_page">
@@ -1103,51 +1125,51 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:31:52.279938" elapsed="0.000632"/>
+<status status="PASS" start="2026-04-07T01:13:29.970510" elapsed="0.000356"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:32:12.964213" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="20260406_103030-0-selenium-screenshot-4.png"&gt;&lt;img src="20260406_103030-0-selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-04-06T10:32:12.964582" level="FAIL">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</msg>
+<msg time="2026-04-07T01:13:50.587320" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-57.png"&gt;&lt;img src="selenium-screenshot-57.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-04-07T01:13:50.587801" level="FAIL">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</msg>
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2026-04-06T10:31:52.280826" elapsed="20.685989">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:13:29.971006" elapsed="20.619531">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-04-06T10:32:12.967231" elapsed="0.000071"/>
+<status status="NOT RUN" start="2026-04-07T01:13:50.590944" elapsed="0.000073"/>
 </kw>
 <arg>${USER_MENU}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="FAIL" start="2026-04-06T10:31:52.279444" elapsed="20.688062">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:13:29.970242" elapsed="20.620988">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <kw name="Click On Element" owner="common_keywords">
 <arg>${LOGOUT_OPTION}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="NOT RUN" start="2026-04-06T10:32:12.967856" elapsed="0.000061"/>
+<status status="NOT RUN" start="2026-04-07T01:13:50.591581" elapsed="0.000062"/>
 </kw>
 <doc>Clicks the user menu then the Logout option.</doc>
-<status status="FAIL" start="2026-04-06T10:31:52.278970" elapsed="20.689120">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:13:29.969990" elapsed="20.621879">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <arg>Logout</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2026-04-06T10:31:52.278355" elapsed="20.689940"/>
+<status status="PASS" start="2026-04-07T01:13:29.969641" elapsed="20.622375"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:32:12.968722" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
+<msg time="2026-04-07T01:13:50.592511" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
 <arg>${BASE_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-04-06T10:32:12.968481" elapsed="0.296686"/>
+<status status="PASS" start="2026-04-07T01:13:50.592233" elapsed="0.320490"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//input[@name="username"]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.265438" elapsed="0.286501"/>
+<status status="PASS" start="2026-04-07T01:13:50.912958" elapsed="0.569343"/>
 </kw>
 <doc>Resets browser to the login URL before each test.</doc>
-<status status="PASS" start="2026-04-06T10:31:52.277905" elapsed="21.274173"/>
+<status status="PASS" start="2026-04-07T01:13:29.969362" elapsed="21.513072"/>
 </kw>
 <kw name="Login With Credentials" owner="login_page">
 <kw name="Enter Username" owner="login_page">
@@ -1156,34 +1178,34 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Typing '${value}' into: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.553217" elapsed="0.000489"/>
+<status status="PASS" start="2026-04-07T01:13:51.483938" elapsed="0.000422"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.553875" elapsed="0.025336"/>
+<status status="PASS" start="2026-04-07T01:13:51.484510" elapsed="0.012518"/>
 </kw>
 <kw name="Clear Element Text" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.579470" elapsed="0.042504"/>
+<status status="PASS" start="2026-04-07T01:13:51.497220" elapsed="0.032251"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:32:13.623071" level="INFO">Typing text 'invalid_user' into text field 'xpath=//input[@name='username']'.</msg>
+<msg time="2026-04-07T01:13:51.530006" level="INFO">Typing text 'invalid_user' into text field 'xpath=//input[@name='username']'.</msg>
 <arg>${locator}</arg>
 <arg>${value}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.622429" elapsed="0.082729"/>
+<status status="PASS" start="2026-04-07T01:13:51.529706" elapsed="0.135763"/>
 </kw>
 <arg>${USERNAME_INPUT}</arg>
 <arg>${username}</arg>
 <doc>Clears a field and types the given value.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.552933" elapsed="0.152359"/>
+<status status="PASS" start="2026-04-07T01:13:51.483628" elapsed="0.181975"/>
 </kw>
 <arg>${username}</arg>
 <doc>Types the given text into the username field.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.552664" elapsed="0.152698"/>
+<status status="PASS" start="2026-04-07T01:13:51.483233" elapsed="0.182438"/>
 </kw>
 <kw name="Enter Password" owner="login_page">
 <kw name="Enter Text Into Field" owner="common_keywords">
@@ -1191,34 +1213,34 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Typing '${value}' into: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.706218" elapsed="0.000405"/>
+<status status="PASS" start="2026-04-07T01:13:51.666540" elapsed="0.000416"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.706767" elapsed="0.017717"/>
+<status status="PASS" start="2026-04-07T01:13:51.667099" elapsed="0.020242"/>
 </kw>
 <kw name="Clear Element Text" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.724787" elapsed="0.036057"/>
+<status status="PASS" start="2026-04-07T01:13:51.687530" elapsed="0.057501"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:32:13.761484" level="INFO">Typing text 'wrong_password' into text field 'xpath=//input[@name='password']'.</msg>
+<msg time="2026-04-07T01:13:51.745871" level="INFO">Typing text 'wrong_password' into text field 'xpath=//input[@name='password']'.</msg>
 <arg>${locator}</arg>
 <arg>${value}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.761082" elapsed="0.103176"/>
+<status status="PASS" start="2026-04-07T01:13:51.745352" elapsed="0.132710"/>
 </kw>
 <arg>${PASSWORD_INPUT}</arg>
 <arg>${password}</arg>
 <doc>Clears a field and types the given value.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.705928" elapsed="0.158463"/>
+<status status="PASS" start="2026-04-07T01:13:51.666236" elapsed="0.211958"/>
 </kw>
 <arg>${password}</arg>
 <doc>Types the given text into the password field.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.705572" elapsed="0.158885"/>
+<status status="PASS" start="2026-04-07T01:13:51.665879" elapsed="0.212382"/>
 </kw>
 <kw name="Click Login Button" owner="login_page">
 <kw name="Click On Element" owner="common_keywords">
@@ -1226,31 +1248,31 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.865234" elapsed="0.000380"/>
+<status status="PASS" start="2026-04-07T01:13:51.879073" elapsed="0.000396"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.865757" elapsed="0.015543"/>
+<status status="PASS" start="2026-04-07T01:13:51.879647" elapsed="0.016655"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:32:13.881746" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<msg time="2026-04-07T01:13:51.896744" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.881501" elapsed="0.055661"/>
+<status status="PASS" start="2026-04-07T01:13:51.896503" elapsed="0.062023"/>
 </kw>
 <arg>${LOGIN_BUTTON}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.864963" elapsed="0.072334"/>
+<status status="PASS" start="2026-04-07T01:13:51.878770" elapsed="0.079886"/>
 </kw>
 <doc>Clicks the Login submit button.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.864659" elapsed="0.072705"/>
+<status status="PASS" start="2026-04-07T01:13:51.878466" elapsed="0.080258"/>
 </kw>
 <arg>invalid_user</arg>
 <arg>wrong_password</arg>
 <doc>Performs a full login with the given username and password.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.552320" elapsed="0.385635"/>
+<status status="PASS" start="2026-04-07T01:13:51.482880" elapsed="0.475901"/>
 </kw>
 <kw name="Verify Login Error Is Shown" owner="login_page">
 <kw name="Element Should Be Visible On Page" owner="common_keywords">
@@ -1259,32 +1281,32 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>timeout=15 sec</arg>
 <arg>error=Element not found: ${locator}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.938764" elapsed="0.808544"/>
+<status status="PASS" start="2026-04-07T01:13:51.959917" elapsed="1.939097"/>
 </kw>
 <arg>${LOGIN_ERROR_ALERT}</arg>
 <doc>Waits up to 15 seconds for element to appear, then asserts it.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.938492" elapsed="0.808953"/>
+<status status="PASS" start="2026-04-07T01:13:51.959583" elapsed="1.939576"/>
 </kw>
 <doc>Confirms the error alert is displayed after a failed login.</doc>
-<status status="PASS" start="2026-04-06T10:32:13.938196" elapsed="0.809315"/>
+<status status="PASS" start="2026-04-07T01:13:51.959256" elapsed="1.939970"/>
 </kw>
 <kw name="Handle Test Teardown" owner="browser_setup" type="TEARDOWN">
 <kw name="Run Keyword If Test Failed" owner="BuiltIn">
 <arg>Take Screenshot On Failure</arg>
 <doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2026-04-06T10:32:14.748104" elapsed="0.000290"/>
+<status status="PASS" start="2026-04-07T01:13:53.900006" elapsed="0.000287"/>
 </kw>
 <doc>Runs after EVERY test. Takes screenshot only on failure.
 Add this as Test Teardown in your test suite Settings.</doc>
-<status status="PASS" start="2026-04-06T10:32:14.747789" elapsed="0.000686"/>
+<status status="PASS" start="2026-04-07T01:13:53.899671" elapsed="0.000697"/>
 </kw>
 <doc>Wrong credentials displays the error banner.</doc>
 <tag>login</tag>
 <tag>regression</tag>
 <tag>ui</tag>
-<status status="PASS" start="2026-04-06T10:31:52.276983" elapsed="22.471550"/>
+<status status="PASS" start="2026-04-07T01:13:29.968696" elapsed="23.931816"/>
 </test>
-<test id="s1-s1-t7" name="TC-LOGIN-007 Forgot Password Link Should Navigate To Reset Page" line="57">
+<test id="s1-t7" name="TC-LOGIN-007 Forgot Password Link Should Navigate To Reset Page" line="58">
 <kw name="Navigate To Login Page" type="SETUP">
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Logout" owner="dashboard_page">
@@ -1293,51 +1315,51 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:32:14.750539" elapsed="0.000370"/>
+<status status="PASS" start="2026-04-07T01:13:53.902757" elapsed="0.000351"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:32:35.347414" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="20260406_103030-0-selenium-screenshot-5.png"&gt;&lt;img src="20260406_103030-0-selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-04-06T10:32:35.347602" level="FAIL">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</msg>
+<msg time="2026-04-07T01:14:14.591943" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-58.png"&gt;&lt;img src="selenium-screenshot-58.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-04-07T01:14:14.592575" level="FAIL">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</msg>
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2026-04-06T10:32:14.751061" elapsed="20.597689">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:13:53.903251" elapsed="20.692580">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-04-06T10:32:35.348998" elapsed="0.000040"/>
+<status status="NOT RUN" start="2026-04-07T01:14:14.596370" elapsed="0.000093"/>
 </kw>
 <arg>${USER_MENU}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="FAIL" start="2026-04-06T10:32:14.750278" elapsed="20.598906">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:13:53.902496" elapsed="20.694242">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <kw name="Click On Element" owner="common_keywords">
 <arg>${LOGOUT_OPTION}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="NOT RUN" start="2026-04-06T10:32:35.349379" elapsed="0.000034"/>
+<status status="NOT RUN" start="2026-04-07T01:14:14.597013" elapsed="0.000038"/>
 </kw>
 <doc>Clicks the user menu then the Logout option.</doc>
-<status status="FAIL" start="2026-04-06T10:32:14.750021" elapsed="20.599479">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:13:53.902248" elapsed="20.694903">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <arg>Logout</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2026-04-06T10:32:14.749680" elapsed="20.599900"/>
+<status status="PASS" start="2026-04-07T01:13:53.901904" elapsed="20.695332"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:32:35.349847" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
+<msg time="2026-04-07T01:14:14.597534" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
 <arg>${BASE_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-04-06T10:32:35.349694" elapsed="0.317555"/>
+<status status="PASS" start="2026-04-07T01:14:14.597359" elapsed="0.291038"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//input[@name="username"]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:32:35.667480" elapsed="0.307014"/>
+<status status="PASS" start="2026-04-07T01:14:14.888643" elapsed="0.269285"/>
 </kw>
 <doc>Resets browser to the login URL before each test.</doc>
-<status status="PASS" start="2026-04-06T10:32:14.749425" elapsed="21.225208"/>
+<status status="PASS" start="2026-04-07T01:13:53.901611" elapsed="21.256496"/>
 </kw>
 <kw name="Click Forgot Password Link" owner="login_page">
 <kw name="Click On Element" owner="common_keywords">
@@ -1345,50 +1367,50 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:32:35.975454" elapsed="0.000398"/>
+<status status="PASS" start="2026-04-07T01:14:15.163030" elapsed="0.000631"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:32:35.975998" elapsed="0.016693"/>
+<status status="PASS" start="2026-04-07T01:14:15.163909" elapsed="0.017074"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:32:35.993274" level="INFO">Clicking element 'xpath=//p[normalize-space()='Forgot your password?']'.</msg>
+<msg time="2026-04-07T01:14:15.181544" level="INFO">Clicking element 'xpath=//p[normalize-space()='Forgot your password?']'.</msg>
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-06T10:32:35.992956" elapsed="0.368151"/>
+<status status="PASS" start="2026-04-07T01:14:15.181239" elapsed="0.397904"/>
 </kw>
 <arg>${FORGOT_PWD_LINK}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="PASS" start="2026-04-06T10:32:35.975169" elapsed="0.386073"/>
+<status status="PASS" start="2026-04-07T01:14:15.162393" elapsed="0.416886"/>
 </kw>
 <doc>Clicks the Forgot your password? link.</doc>
-<status status="PASS" start="2026-04-06T10:32:35.974857" elapsed="0.386451"/>
+<status status="PASS" start="2026-04-07T01:14:15.161767" elapsed="0.417580"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>Reset Password</arg>
 <arg>timeout=${MEDIUM_WAIT}</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2026-04-06T10:32:36.361482" elapsed="0.265109"/>
+<status status="PASS" start="2026-04-07T01:14:15.579939" elapsed="0.273536"/>
 </kw>
 <kw name="Handle Test Teardown" owner="browser_setup" type="TEARDOWN">
 <kw name="Run Keyword If Test Failed" owner="BuiltIn">
 <arg>Take Screenshot On Failure</arg>
 <doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2026-04-06T10:32:36.627582" elapsed="0.000421"/>
+<status status="PASS" start="2026-04-07T01:14:15.854753" elapsed="0.000366"/>
 </kw>
 <doc>Runs after EVERY test. Takes screenshot only on failure.
 Add this as Test Teardown in your test suite Settings.</doc>
-<status status="PASS" start="2026-04-06T10:32:36.627071" elapsed="0.001075"/>
+<status status="PASS" start="2026-04-07T01:14:15.854306" elapsed="0.000922"/>
 </kw>
 <doc>Clicks the forgot password link — verifies navigation.</doc>
 <tag>login</tag>
 <tag>regression</tag>
 <tag>ui</tag>
-<status status="PASS" start="2026-04-06T10:32:14.748862" elapsed="21.879371"/>
+<status status="PASS" start="2026-04-07T01:13:53.900980" elapsed="21.954489"/>
 </test>
-<test id="s1-s1-t8" name="TC-LOGIN-008 WIP - New SSO Login Flow" line="62">
+<test id="s1-t8" name="TC-LOGIN-008 WIP - New SSO Login Flow" line="63">
 <kw name="Navigate To Login Page" type="SETUP">
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Logout" owner="dashboard_page">
@@ -1397,90 +1419,90 @@ Add this as Test Teardown in your test suite Settings.</doc>
 <arg>Clicking element: ${locator}</arg>
 <arg>level=DEBUG</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:32:36.631970" elapsed="0.000742"/>
+<status status="PASS" start="2026-04-07T01:14:15.858429" elapsed="0.000463"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:32:57.376597" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="20260406_103030-0-selenium-screenshot-6.png"&gt;&lt;img src="20260406_103030-0-selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-04-06T10:32:57.376918" level="FAIL">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</msg>
+<msg time="2026-04-07T01:14:36.524512" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-59.png"&gt;&lt;img src="selenium-screenshot-59.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-04-07T01:14:36.524829" level="FAIL">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</msg>
 <arg>${locator}</arg>
 <arg>timeout=15 sec</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2026-04-06T10:32:36.632957" elapsed="20.745757">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:14:15.859076" elapsed="20.667182">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-04-06T10:32:57.379114" elapsed="0.000070"/>
+<status status="NOT RUN" start="2026-04-07T01:14:36.526542" elapsed="0.000043"/>
 </kw>
 <arg>${USER_MENU}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="FAIL" start="2026-04-06T10:32:36.631336" elapsed="20.748047">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:14:15.858066" elapsed="20.668644">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <kw name="Click On Element" owner="common_keywords">
 <arg>${LOGOUT_OPTION}</arg>
 <doc>Waits for element to be clickable then clicks it.</doc>
-<status status="NOT RUN" start="2026-04-06T10:32:57.379710" elapsed="0.000056"/>
+<status status="NOT RUN" start="2026-04-07T01:14:36.526922" elapsed="0.000036"/>
 </kw>
 <doc>Clicks the user menu then the Logout option.</doc>
-<status status="FAIL" start="2026-04-06T10:32:36.630727" elapsed="20.749191">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
+<status status="FAIL" start="2026-04-07T01:14:15.857725" elapsed="20.669321">Element 'xpath=//li[contains(@class,'oxd-userdropdown')]' not visible after 15 seconds.</status>
 </kw>
 <arg>Logout</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2026-04-06T10:32:36.629930" elapsed="20.750114"/>
+<status status="PASS" start="2026-04-07T01:14:15.857267" elapsed="20.669869"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:32:57.380506" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
+<msg time="2026-04-07T01:14:36.527422" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
 <arg>${BASE_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2026-04-06T10:32:57.380259" elapsed="0.437470"/>
+<status status="PASS" start="2026-04-07T01:14:36.527253" elapsed="0.844439"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//input[@name="username"]</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:32:57.817968" elapsed="0.252503"/>
+<status status="PASS" start="2026-04-07T01:14:37.371937" elapsed="0.272084"/>
 </kw>
 <doc>Resets browser to the login URL before each test.</doc>
-<status status="PASS" start="2026-04-06T10:32:36.629178" elapsed="21.441428"/>
+<status status="PASS" start="2026-04-07T01:14:15.856926" elapsed="21.787306"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-04-06T10:32:58.071214" level="WARN">SSO login test placeholder — not yet implemented</msg>
+<msg time="2026-04-07T01:14:37.645163" level="WARN">SSO login test placeholder — not yet implemented</msg>
 <arg>SSO login test placeholder — not yet implemented</arg>
 <arg>level=WARN</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:32:58.070809" elapsed="0.000587"/>
+<status status="PASS" start="2026-04-07T01:14:37.644685" elapsed="0.000873"/>
 </kw>
 <kw name="Pass Execution" owner="BuiltIn">
-<msg time="2026-04-06T10:32:58.071943" level="INFO">Execution passed with message:
+<msg time="2026-04-07T01:14:37.646144" level="INFO">Execution passed with message:
 Skipping — SSO feature under development</msg>
 <arg>Skipping — SSO feature under development</arg>
 <doc>Skips rest of the current test, setup, or teardown with PASS status.</doc>
-<status status="PASS" start="2026-04-06T10:32:58.071650" elapsed="0.000382">Skipping — SSO feature under development</status>
+<status status="PASS" start="2026-04-07T01:14:37.645836" elapsed="0.000414">Skipping — SSO feature under development</status>
 </kw>
 <kw name="Handle Test Teardown" owner="browser_setup" type="TEARDOWN">
 <kw name="Run Keyword If Test Failed" owner="BuiltIn">
 <arg>Take Screenshot On Failure</arg>
 <doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2026-04-06T10:32:58.072737" elapsed="0.000302"/>
+<status status="PASS" start="2026-04-07T01:14:37.646990" elapsed="0.000266"/>
 </kw>
 <doc>Runs after EVERY test. Takes screenshot only on failure.
 Add this as Test Teardown in your test suite Settings.</doc>
-<status status="PASS" start="2026-04-06T10:32:58.072320" elapsed="0.000806"/>
+<status status="PASS" start="2026-04-07T01:14:37.646641" elapsed="0.000697"/>
 </kw>
 <doc>SSO feature not yet implemented — excluded from CI runs.</doc>
 <tag>login</tag>
 <tag>regression</tag>
 <tag>ui</tag>
 <tag>wip</tag>
-<status status="PASS" start="2026-04-06T10:32:36.628646" elapsed="21.444539">Skipping — SSO feature under development</status>
+<status status="PASS" start="2026-04-07T01:14:15.856173" elapsed="21.791304">Skipping — SSO feature under development</status>
 </test>
 <kw name="Close My Browser" owner="browser_setup" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-04-06T10:32:58.074242" elapsed="2.241849"/>
+<status status="PASS" start="2026-04-07T01:14:37.648658" elapsed="2.274879"/>
 </kw>
 <doc>Closes all open browser windows cleanly.</doc>
-<status status="PASS" start="2026-04-06T10:32:58.074018" elapsed="2.242400"/>
+<status status="PASS" start="2026-04-07T01:14:37.648422" elapsed="2.275479"/>
 </kw>
 <doc>Login page functional tests.
 Demonstrates: tags, screenshot on failure, test teardown, logging.
@@ -1488,285 +1510,26 @@ Demonstrates: tags, screenshot on failure, test teardown, logging.
 Run all:        robot tests/ui/login_tests.robot
 Run smoke only: robot --include smoke tests/ui/login_tests.robot
 Skip wip:       robot --exclude wip tests/ui/login_tests.robot</doc>
-<status status="PASS" start="2026-04-06T10:30:33.909000" elapsed="146.052000"/>
-</suite>
-<suite id="s1-s2" name="Smoke Tests" source="C:\Development\OrangeHRMRobotFramework\tests\ui\smoke_tests.robot">
-<kw name="Initialize Smoke Suite" type="SETUP">
-<kw name="Load Environment Config" owner="common_keywords">
-<kw name="Log" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.270849" level="INFO">Loading config: config/dev.yaml</msg>
-<arg>Loading config: ${config_file}</arg>
-<arg>level=INFO</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.270413" elapsed="0.000512"/>
-</kw>
-<kw name="Read Config" owner="config_reader">
-<msg time="2026-04-06T10:30:34.272987" level="INFO">${config} = {'environment': 'dev', 'application': {'base_url': 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login', 'app_name': 'OrangeHRM'}, 'credentials': {'username': 'Admin', 'password': 'adm...</msg>
-<var>${config}</var>
-<arg>${config_file}</arg>
-<doc>Reads a YAML config file and returns its contents as a dictionary.
-Substitutes ${VAR_NAME} placeholders with OS environment variables.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.271088" elapsed="0.001945"/>
-</kw>
-<kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.273568" level="INFO">${BASE_URL} = https://opensource-demo.orangehrmlive.com/web/index.php/auth/login</msg>
-<arg>${BASE_URL}</arg>
-<arg>${config}[application][base_url]</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.273197" elapsed="0.000421"/>
-</kw>
-<kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.274066" level="INFO">${APP_NAME} = OrangeHRM</msg>
-<arg>${APP_NAME}</arg>
-<arg>${config}[application][app_name]</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.273748" elapsed="0.000364"/>
-</kw>
-<kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.274541" level="INFO">${ADMIN_USERNAME} = Admin</msg>
-<arg>${ADMIN_USERNAME}</arg>
-<arg>${config}[credentials][username]</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.274236" elapsed="0.000350"/>
-</kw>
-<kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.275016" level="INFO">${ADMIN_PASSWORD} = admin123</msg>
-<arg>${ADMIN_PASSWORD}</arg>
-<arg>${config}[credentials][password]</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.274713" elapsed="0.000347"/>
-</kw>
-<kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.275468" level="INFO">${BROWSER} = chrome</msg>
-<arg>${BROWSER}</arg>
-<arg>${config}[browser][name]</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.275179" elapsed="0.000334"/>
-</kw>
-<kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.276063" level="INFO">${HEADLESS} = False</msg>
-<arg>${HEADLESS}</arg>
-<arg>${config}[browser][headless]</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.275694" elapsed="0.000421"/>
-</kw>
-<kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.276754" level="INFO">${IMPLICIT_WAIT} = 10</msg>
-<arg>${IMPLICIT_WAIT}</arg>
-<arg>${config}[browser][implicit_wait]</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.276258" elapsed="0.000552"/>
-</kw>
-<kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.277326" level="INFO">${EXPLICIT_WAIT} = 30</msg>
-<arg>${EXPLICIT_WAIT}</arg>
-<arg>${config}[browser][explicit_wait]</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.276969" elapsed="0.000401"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.278066" level="INFO">✔ Config loaded | ENV: dev | URL: https://opensource-demo.orangehrmlive.com/web/index.php/auth/login</msg>
-<arg>✔ Config loaded | ENV: ${config}[environment] | URL: ${BASE_URL}</arg>
-<arg>level=INFO</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.277497" elapsed="0.000627"/>
-</kw>
-<doc>Reads the active YAML config and sets all suite variables.
-Call this in Suite Setup before opening the browser.
-Override config file via: --variable CONFIG_FILE:config/staging.yaml</doc>
-<status status="PASS" start="2026-04-06T10:30:34.269555" elapsed="0.008662"/>
-</kw>
-<kw name="Open My Browser" owner="browser_setup">
-<kw name="Get Chrome Options" owner="browser_setup">
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-04-06T10:30:34.282528" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001DF62CF41A0&gt;</msg>
-<var>${options}</var>
-<arg>selenium.webdriver.ChromeOptions()</arg>
-<arg>modules=selenium</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.279146" elapsed="0.003423"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<arg>$options.add_argument('--no-sandbox')</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.282706" elapsed="0.000364"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<arg>$options.add_argument('--disable-dev-shm-usage')</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.283196" elapsed="0.000307"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<arg>$options.add_argument('--window-size=1920,1080')</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.283626" elapsed="0.000300"/>
-</kw>
-<if>
-<branch type="IF" condition="${headless}">
-<kw name="Evaluate" owner="BuiltIn">
-<arg>$options.add_argument('--headless=new')</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="NOT RUN" start="2026-04-06T10:30:34.284215" elapsed="0.000030"/>
-</kw>
-<status status="NOT RUN" start="2026-04-06T10:30:34.284042" elapsed="0.000247"/>
-</branch>
-<status status="PASS" start="2026-04-06T10:30:34.284008" elapsed="0.000330"/>
-</if>
-<return>
-<value>${options}</value>
-<status status="PASS" start="2026-04-06T10:30:34.284384" elapsed="0.000057"/>
-</return>
-<msg time="2026-04-06T10:30:34.284590" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001DF62CF41A0&gt;</msg>
-<var>${options}</var>
-<arg>${headless}</arg>
-<doc>Builds ChromeOptions with stability flags and optional headless mode.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.278904" elapsed="0.005715"/>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:30:34.285018" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
-<arg>${url}</arg>
-<arg>${browser}</arg>
-<arg>options=${options}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.284762" elapsed="2.641781"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-04-06T10:30:36.926809" elapsed="0.048792"/>
-</kw>
-<kw name="Set Browser Implicit Wait" owner="SeleniumLibrary">
-<arg>${IMPLICIT_WAIT}</arg>
-<doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" start="2026-04-06T10:30:36.976059" elapsed="0.002173"/>
-</kw>
-<doc>Opens Chrome and navigates to the given URL.</doc>
-<status status="PASS" start="2026-04-06T10:30:34.278479" elapsed="2.699885"/>
-</kw>
-<status status="PASS" start="2026-04-06T10:30:34.269120" elapsed="2.709331"/>
-</kw>
-<test id="s1-s2-t1" name="TC-SMOKE-001 Application Should Be Reachable" line="15">
-<kw name="Verify Login Page Is Loaded" owner="login_page">
-<kw name="Element Should Be Visible On Page" owner="common_keywords">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>timeout=15 sec</arg>
-<arg>error=Element not found: ${locator}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:30:36.980315" elapsed="0.288791"/>
-</kw>
-<arg>${LOGIN_LOGO}</arg>
-<doc>Waits up to 15 seconds for element to appear, then asserts it.</doc>
-<status status="PASS" start="2026-04-06T10:30:36.979747" elapsed="0.289504"/>
-</kw>
-<kw name="Element Should Be Visible On Page" owner="common_keywords">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>timeout=15 sec</arg>
-<arg>error=Element not found: ${locator}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:30:37.269854" elapsed="0.018553"/>
-</kw>
-<arg>${USERNAME_INPUT}</arg>
-<doc>Waits up to 15 seconds for element to appear, then asserts it.</doc>
-<status status="PASS" start="2026-04-06T10:30:37.269485" elapsed="0.019049"/>
-</kw>
-<kw name="Element Should Be Visible On Page" owner="common_keywords">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>timeout=15 sec</arg>
-<arg>error=Element not found: ${locator}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-06T10:30:37.289090" elapsed="0.025483"/>
-</kw>
-<arg>${LOGIN_BUTTON}</arg>
-<doc>Waits up to 15 seconds for element to appear, then asserts it.</doc>
-<status status="PASS" start="2026-04-06T10:30:37.288739" elapsed="0.026051"/>
-</kw>
-<doc>Confirms the login page is fully rendered.</doc>
-<status status="PASS" start="2026-04-06T10:30:36.979368" elapsed="0.335542"/>
-</kw>
-<kw name="Handle Test Teardown" owner="browser_setup" type="TEARDOWN">
-<kw name="Run Keyword If Test Failed" owner="BuiltIn">
-<arg>Take Screenshot On Failure</arg>
-<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2026-04-06T10:30:37.315777" elapsed="0.000322"/>
-</kw>
-<doc>Runs after EVERY test. Takes screenshot only on failure.
-Add this as Test Teardown in your test suite Settings.</doc>
-<status status="PASS" start="2026-04-06T10:30:37.315383" elapsed="0.000793"/>
-</kw>
-<doc>Confirms the app URL loads (no login needed).</doc>
-<tag>smoke</tag>
-<tag>ui</tag>
-<status status="PASS" start="2026-04-06T10:30:36.978556" elapsed="0.337683"/>
-</test>
-<test id="s1-s2-t2" name="TC-SMOKE-002 Login Page Title Should Be Correct" line="19">
-<kw name="Verify Page Title Contains" owner="common_keywords">
-<kw name="Get Title" owner="SeleniumLibrary">
-<msg time="2026-04-06T10:30:37.322374" level="INFO">${title} = OrangeHRM</msg>
-<var>${title}</var>
-<doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2026-04-06T10:30:37.317815" elapsed="0.004601"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${title}</arg>
-<arg>${expected_text}</arg>
-<arg>msg=Page title does not contain '${expected_text}'. Actual: '${title}'</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2026-04-06T10:30:37.322773" elapsed="0.000776"/>
-</kw>
-<arg>OrangeHRM</arg>
-<doc>Gets the browser tab title and asserts it contains expected text.</doc>
-<status status="PASS" start="2026-04-06T10:30:37.317538" elapsed="0.006115"/>
-</kw>
-<kw name="Handle Test Teardown" owner="browser_setup" type="TEARDOWN">
-<kw name="Run Keyword If Test Failed" owner="BuiltIn">
-<arg>Take Screenshot On Failure</arg>
-<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2026-04-06T10:30:37.324215" elapsed="0.000319"/>
-</kw>
-<doc>Runs after EVERY test. Takes screenshot only on failure.
-Add this as Test Teardown in your test suite Settings.</doc>
-<status status="PASS" start="2026-04-06T10:30:37.323907" elapsed="0.000759"/>
-</kw>
-<doc>Verifies the OrangeHRM page title.</doc>
-<tag>smoke</tag>
-<tag>ui</tag>
-<status status="PASS" start="2026-04-06T10:30:37.316725" elapsed="0.008026"/>
-</test>
-<kw name="Close My Browser" owner="browser_setup" type="TEARDOWN">
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-04-06T10:30:37.325906" elapsed="2.238801"/>
-</kw>
-<doc>Closes all open browser windows cleanly.</doc>
-<status status="PASS" start="2026-04-06T10:30:37.325617" elapsed="2.239344"/>
-</kw>
-<doc>Standalone smoke suite — intentionally separate from login_tests
-so pabot can run them in parallel.</doc>
-<status status="PASS" start="2026-04-06T10:30:33.904130" elapsed="5.660942"/>
-</suite>
-<status status="PASS" start="2026-04-06T10:30:33.850000" elapsed="146.058000"/>
+<status status="PASS" start="2026-04-07T01:12:02.933165" elapsed="156.990897"/>
 </suite>
 <statistics>
 <total>
-<stat pass="10" fail="0" skip="0">All Tests</stat>
+<stat pass="8" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="2" fail="0" skip="0">critical</stat>
+<stat pass="1" fail="0" skip="0">critical</stat>
 <stat pass="8" fail="0" skip="0">login</stat>
 <stat pass="8" fail="0" skip="0">regression</stat>
-<stat pass="5" fail="0" skip="0">smoke</stat>
-<stat pass="10" fail="0" skip="0">ui</stat>
+<stat pass="1" fail="0" skip="0">run_this</stat>
+<stat pass="2" fail="0" skip="0">smoke</stat>
+<stat pass="8" fail="0" skip="0">ui</stat>
 <stat pass="1" fail="0" skip="0">wip</stat>
 </tag>
 <suite>
-<stat name="Ui" id="s1" pass="10" fail="0" skip="0">Ui</stat>
-<stat name="Login Tests" id="s1-s1" pass="8" fail="0" skip="0">Ui.Login Tests</stat>
-<stat name="Smoke Tests" id="s1-s2" pass="2" fail="0" skip="0">Ui.Smoke Tests</stat>
+<stat name="Login Tests" id="s1" pass="8" fail="0" skip="0">Login Tests</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2026-04-06T10:32:58.071214" level="WARN">SSO login test placeholder — not yet implemented</msg>
+<msg time="2026-04-07T01:14:37.645163" level="WARN">SSO login test placeholder — not yet implemented</msg>
 </errors>
 </robot>
