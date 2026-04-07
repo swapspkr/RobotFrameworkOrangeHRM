@@ -32,6 +32,7 @@ services:
     environment:
       - SE_SESSION_REQUEST_TIMEOUT=300
       - SE_SESSION_RETRY_INTERVAL=15
+      - SE_NODE_MAX_SESSIONS=6         # hub allows up to 6 total concurrent sessions across all nodes
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:4444/wd/hub/status"]
       interval: 15s
@@ -40,9 +41,12 @@ services:
       start_period: 20s
 
   # ── Chrome Node ───────────────────────────────────────────────────
+  # Default: 1 replica. CI scales this to 3 via:
+  #   docker compose up -d --scale chrome=3
+  # Each replica handles 1 concurrent session → 3 replicas = 3 parallel tests.
   chrome:
     image: selenium/node-chrome:4.18.1
-    container_name: selenium-chrome
+    # No 'container_name' — allows multiple replicas when scaled
     networks:
       - grid
     depends_on:
@@ -53,7 +57,7 @@ services:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - SE_NODE_MAX_SESSIONS=3
+      - SE_NODE_MAX_SESSIONS=1         # 1 session per replica; scale replicas for concurrency
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
       - SE_VNC_NO_PASSWORD=1           # VNC access without password for debugging
 

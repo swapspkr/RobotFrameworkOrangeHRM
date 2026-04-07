@@ -179,12 +179,18 @@ jobs:
           done
           echo "Selenium Grid is ready."
 
-      - name: Run Tests on Selenium Grid
+      # Scale Chrome to 3 replicas so 3 parallel sessions run simultaneously
+      - name: Scale Chrome Nodes
+        run: docker compose up -d --scale chrome=3 --no-recreate
+
+      - name: Run Tests in Parallel on Selenium Grid
         env:
           DEV_ADMIN_USERNAME: ${{ secrets.DEV_ADMIN_USERNAME }}
           DEV_ADMIN_PASSWORD: ${{ secrets.DEV_ADMIN_PASSWORD }}
         run: |
-          robot \
+          pabot \
+            --processes 3 \
+            --testlevelsplit \
             --include smoke \
             --variable CONFIG_FILE:config/dev.yaml \
             --variable ADMIN_USERNAME:${DEV_ADMIN_USERNAME} \
