@@ -22,11 +22,13 @@ Load Environment Config
     Set Suite Variable    ${BROWSER}          ${config}[browser][name]
     Set Suite Variable    ${IMPLICIT_WAIT}    ${config}[browser][implicit_wait]
     Set Suite Variable    ${EXPLICIT_WAIT}    ${config}[browser][explicit_wait]
-    # Grid config — falls back to defaults if 'grid' key not present in YAML
+    # Grid URL — loaded from YAML so each environment can point to its own hub.
+    # USE_GRID is intentionally NOT set here — it is a CLI/infrastructure flag
+    # (--variable USE_GRID:true) and must not be overridden by YAML values.
     ${grid}=    Evaluate    $config.get('grid', {})
-    Set Suite Variable    ${USE_GRID}    ${grid.get('enabled', False)}
-    Set Suite Variable    ${GRID_URL}    ${grid.get('url', 'http://localhost:4444/wd/hub')}
-   Log    ✔ Config loaded | ENV: ${config}[environment] | URL: ${BASE_URL} | Grid: ${USE_GRID}    level=INFO
+    ${grid_url_from_yaml}=    Evaluate    $grid.get('url', 'http://localhost:4444/wd/hub')
+    Set Suite Variable    ${GRID_URL}    ${grid_url_from_yaml}
+   Log    ✔ Config loaded | ENV: ${config}[environment] | URL: ${BASE_URL} | Grid: ${USE_GRID} | GridURL: ${GRID_URL}    level=INFO
 
 # ============================================================
 # WAITS & INTERACTIONS (your existing keywords below)
