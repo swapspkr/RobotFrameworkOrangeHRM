@@ -56,6 +56,8 @@ jobs:
           robot \
             --include smoke \
             --variable CONFIG_FILE:config/dev.yaml \
+            --variable ADMIN_USERNAME:${DEV_ADMIN_USERNAME} \
+            --variable ADMIN_PASSWORD:${DEV_ADMIN_PASSWORD} \
             --variable HEADLESS:true \
             --outputdir ${{ env.RESULTS_DIR }} \
             --log smoke_log.html \
@@ -102,11 +104,14 @@ jobs:
 
       - name: Run Full Regression
         env:
-          STAGING_PASSWORD: ${{ secrets.STAGING_PASSWORD }}
+          DEV_ADMIN_USERNAME: ${{ secrets.DEV_ADMIN_USERNAME }}
+          DEV_ADMIN_PASSWORD: ${{ secrets.DEV_ADMIN_PASSWORD }}
         run: |
           robot \
             --exclude wip \
             --variable CONFIG_FILE:config/dev.yaml \
+            --variable ADMIN_USERNAME:${DEV_ADMIN_USERNAME} \
+            --variable ADMIN_PASSWORD:${DEV_ADMIN_PASSWORD} \
             --variable HEADLESS:true \
             --outputdir ${{ env.RESULTS_DIR }} \
             tests/
